@@ -31,6 +31,44 @@ const Home = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const skillIcons = {
+    // Programming Languages
+    'Python': { icon: '🐍', color: 'from-blue-400 to-yellow-400', bg: 'bg-blue-500/10' },
+    'Java': { icon: '☕', color: 'from-red-400 to-orange-400', bg: 'bg-red-500/10' },
+    'JavaScript': { icon: '⚡', color: 'from-yellow-400 to-yellow-600', bg: 'bg-yellow-500/10' },
+    'Swift': { icon: '🔶', color: 'from-orange-400 to-red-400', bg: 'bg-orange-500/10' },
+    'SQL': { icon: '📊', color: 'from-blue-400 to-indigo-400', bg: 'bg-blue-500/10' },
+    
+    // Frameworks & Libraries
+    'React': { icon: '⚛️', color: 'from-cyan-400 to-blue-400', bg: 'bg-cyan-500/10' },
+    'Node.js': { icon: '🟢', color: 'from-green-400 to-emerald-400', bg: 'bg-green-500/10' },
+    'NumPy': { icon: '🔢', color: 'from-blue-400 to-cyan-400', bg: 'bg-blue-500/10' },
+    'Pandas': { icon: '🐼', color: 'from-blue-500 to-purple-500', bg: 'bg-blue-500/10' },
+    'LangChain': { icon: '🔗', color: 'from-purple-400 to-pink-400', bg: 'bg-purple-500/10' },
+    'Streamlit': { icon: '🎯', color: 'from-red-400 to-pink-400', bg: 'bg-red-500/10' },
+    
+    // Cloud & AWS
+    'AWS': { icon: '☁️', color: 'from-orange-400 to-yellow-400', bg: 'bg-orange-500/10' },
+    'Bedrock': { icon: '🧱', color: 'from-gray-400 to-slate-400', bg: 'bg-gray-500/10' },
+    'Lambda': { icon: '⚡', color: 'from-orange-400 to-amber-400', bg: 'bg-orange-500/10' },
+    'DynamoDB': { icon: '💾', color: 'from-blue-400 to-cyan-400', bg: 'bg-blue-500/10' },
+    'EC2': { icon: '🖥️', color: 'from-orange-400 to-red-400', bg: 'bg-orange-500/10' },
+    'S3': { icon: '🪣', color: 'from-green-400 to-emerald-400', bg: 'bg-green-500/10' },
+    
+    // Databases
+    'MySQL': { icon: '🐬', color: 'from-blue-400 to-cyan-400', bg: 'bg-blue-500/10' },
+    'MongoDB': { icon: '🍃', color: 'from-green-400 to-emerald-400', bg: 'bg-green-500/10' },
+    'PostgreSQL': { icon: '🐘', color: 'from-blue-400 to-indigo-400', bg: 'bg-blue-500/10' },
+    
+    // Tools & Methodologies
+    'Agile': { icon: '🔄', color: 'from-purple-400 to-blue-400', bg: 'bg-purple-500/10' },
+    'Scrum': { icon: '🏉', color: 'from-green-400 to-teal-400', bg: 'bg-green-500/10' },
+    'Git': { icon: '📦', color: 'from-orange-400 to-red-400', bg: 'bg-orange-500/10' },
+    'Unit Testing': { icon: '✅', color: 'from-green-400 to-emerald-400', bg: 'bg-green-500/10' },
+    'CI/CD': { icon: '🔁', color: 'from-blue-400 to-indigo-400', bg: 'bg-blue-500/10' },
+    'REST APIs': { icon: '🌐', color: 'from-cyan-400 to-blue-400', bg: 'bg-cyan-500/10' }
+  };
+
   const skillCategories = {
     programming: {
       title: 'Programming Languages',
