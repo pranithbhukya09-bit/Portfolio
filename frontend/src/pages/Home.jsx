@@ -322,126 +322,52 @@ const Home = () => {
             <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto rounded-full"></div>
           </div>
           
-          <div className="space-y-12">
-            {/* Programming Languages */}
-            <div>
-              <h3 className="text-2xl font-semibold text-white mb-6 flex items-center">
-                <Code className="w-6 h-6 text-cyan-400 mr-3" />
-                Programming Languages
-              </h3>
-              <div className="space-y-4">
-                {skills.programming.map((skill) => (
-                  <div key={skill.name} className="group">
-                    <div className="flex justify-between mb-2">
-                      <span className="text-slate-300 font-medium">{skill.name}</span>
-                      <span className="text-cyan-400 font-semibold">{skill.level}%</span>
-                    </div>
-                    <div className="h-3 bg-slate-800 rounded-full overflow-hidden">
-                      <div 
-                        className="h-full bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full transition-all duration-1000 ease-out"
-                        style={{ width: `${skill.level}%` }}
-                      >
-                        <div className="h-full bg-white/20 animate-pulse"></div>
-                      </div>
+          <Card className="bg-slate-900/50 border-slate-800 backdrop-blur-sm">
+            <CardContent className="p-8">
+              {/* Tabs */}
+              <div className="flex flex-wrap gap-2 mb-8 border-b border-slate-800 pb-4">
+                {Object.keys(skillCategories).map((category) => {
+                  const Icon = skillCategories[category].icon;
+                  return (
+                    <button
+                      key={category}
+                      onClick={() => setActiveSkillTab(category)}
+                      className={`flex items-center gap-2 px-6 py-3 rounded-lg transition-all duration-300 ${
+                        activeSkillTab === category
+                          ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg'
+                          : 'bg-slate-800/50 text-slate-400 hover:bg-slate-800 hover:text-slate-200'
+                      }`}
+                    >
+                      <Icon className="w-4 h-4" />
+                      <span className="font-medium">{skillCategories[category].title}</span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Tab Content */}
+              <div className="min-h-[300px]">
+                {Object.keys(skillCategories).map((category) => (
+                  <div
+                    key={category}
+                    className={`${activeSkillTab === category ? 'block' : 'hidden'} animate-fade-in`}
+                  >
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                      {skillCategories[category].skills.map((skill) => (
+                        <div
+                          key={skill}
+                          className="group bg-slate-800/50 border border-slate-700 rounded-xl p-6 text-center hover:border-cyan-500/50 hover:bg-slate-800 transition-all duration-300 hover:scale-105"
+                        >
+                          <div className="text-2xl mb-2">💻</div>
+                          <div className="text-slate-200 font-medium">{skill}</div>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 ))}
               </div>
-            </div>
-
-            {/* Frameworks & Libraries */}
-            <div>
-              <h3 className="text-2xl font-semibold text-white mb-6 flex items-center">
-                <Database className="w-6 h-6 text-cyan-400 mr-3" />
-                Frameworks & Libraries
-              </h3>
-              <div className="space-y-4">
-                {skills.frameworks.map((skill) => (
-                  <div key={skill.name} className="group">
-                    <div className="flex justify-between mb-2">
-                      <span className="text-slate-300 font-medium">{skill.name}</span>
-                      <span className="text-cyan-400 font-semibold">{skill.level}%</span>
-                    </div>
-                    <div className="h-3 bg-slate-800 rounded-full overflow-hidden">
-                      <div 
-                        className="h-full bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full transition-all duration-1000 ease-out"
-                        style={{ width: `${skill.level}%` }}
-                      >
-                        <div className="h-full bg-white/20 animate-pulse"></div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Cloud & AWS */}
-            <div>
-              <h3 className="text-2xl font-semibold text-white mb-6 flex items-center">
-                <Cloud className="w-6 h-6 text-cyan-400 mr-3" />
-                Cloud & AWS
-              </h3>
-              <div className="space-y-4">
-                {skills.cloud.map((skill) => (
-                  <div key={skill.name} className="group">
-                    <div className="flex justify-between mb-2">
-                      <span className="text-slate-300 font-medium">{skill.name}</span>
-                      <span className="text-cyan-400 font-semibold">{skill.level}%</span>
-                    </div>
-                    <div className="h-3 bg-slate-800 rounded-full overflow-hidden">
-                      <div 
-                        className="h-full bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full transition-all duration-1000 ease-out"
-                        style={{ width: `${skill.level}%` }}
-                      >
-                        <div className="h-full bg-white/20 animate-pulse"></div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Databases */}
-            <div>
-              <h3 className="text-2xl font-semibold text-white mb-6 flex items-center">
-                <Database className="w-6 h-6 text-cyan-400 mr-3" />
-                Databases
-              </h3>
-              <div className="space-y-4">
-                {skills.databases.map((skill) => (
-                  <div key={skill.name} className="group">
-                    <div className="flex justify-between mb-2">
-                      <span className="text-slate-300 font-medium">{skill.name}</span>
-                      <span className="text-cyan-400 font-semibold">{skill.level}%</span>
-                    </div>
-                    <div className="h-3 bg-slate-800 rounded-full overflow-hidden">
-                      <div 
-                        className="h-full bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full transition-all duration-1000 ease-out"
-                        style={{ width: `${skill.level}%` }}
-                      >
-                        <div className="h-full bg-white/20 animate-pulse"></div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Additional Skills */}
-            <div>
-              <h3 className="text-2xl font-semibold text-white mb-6 flex items-center">
-                <Award className="w-6 h-6 text-cyan-400 mr-3" />
-                Tools & Methodologies
-              </h3>
-              <div className="flex flex-wrap gap-3">
-                {['Agile', 'Scrum', 'Git', 'Streamlit', 'Unit Testing'].map((skill) => (
-                  <Badge key={skill} className="bg-slate-800 text-slate-200 hover:bg-slate-700 px-4 py-2 text-base border border-slate-700 hover:border-cyan-500/50 transition-all duration-300">
-                    {skill}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
