@@ -1,19 +1,69 @@
-import React from 'react';
-import { Mail, Phone, MapPin, Linkedin, Github, ExternalLink, Code, Database, Cloud, Award, Briefcase, GraduationCap } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Mail, Phone, MapPin, Linkedin, Github, ExternalLink, Code, Database, Cloud, Award, Briefcase, GraduationCap, ChevronDown, ArrowRight, Terminal, Brain, Sparkles } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 
 const Home = () => {
   const profileImage = "https://customer-assets.emergentagent.com/job_career-analyzer-8/artifacts/3jlewvd3_efe62cd4-6ee9-4106-a55a-34a2c979de14.jpeg";
+  const [scrollY, setScrollY] = useState(0);
+  const [activeSection, setActiveSection] = useState('home');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+      
+      // Update active section based on scroll position
+      const sections = ['home', 'about', 'skills', 'experience', 'projects', 'education', 'contact'];
+      const current = sections.find(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      });
+      if (current) setActiveSection(current);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const skills = {
-    programming: ['Python', 'Java', 'JavaScript', 'Swift', 'SQL'],
-    frameworks: ['React', 'Node.js', 'NumPy', 'Pandas', 'LangChain'],
-    cloud: ['AWS', 'Bedrock', 'Lambda', 'DynamoDB'],
-    databases: ['MySQL', 'DynamoDB', 'SQL'],
-    tools: ['Agile', 'Scrum', 'Git', 'Streamlit', 'Unit Testing']
+    programming: [
+      { name: 'Python', level: 95 },
+      { name: 'Java', level: 85 },
+      { name: 'JavaScript', level: 90 },
+      { name: 'Swift', level: 75 },
+      { name: 'SQL', level: 90 }
+    ],
+    frameworks: [
+      { name: 'React', level: 90 },
+      { name: 'Node.js', level: 85 },
+      { name: 'NumPy', level: 88 },
+      { name: 'Pandas', level: 92 },
+      { name: 'LangChain', level: 80 }
+    ],
+    cloud: [
+      { name: 'AWS', level: 85 },
+      { name: 'Bedrock', level: 80 },
+      { name: 'Lambda', level: 82 },
+      { name: 'DynamoDB', level: 88 }
+    ],
+    databases: [
+      { name: 'MySQL', level: 90 },
+      { name: 'DynamoDB', level: 88 },
+      { name: 'SQL', level: 92 }
+    ]
   };
+
+  const stats = [
+    { label: 'Years Experience', value: '2+', icon: Award },
+    { label: 'Projects Completed', value: '10+', icon: Terminal },
+    { label: 'Technologies', value: '20+', icon: Code },
+    { label: 'Students Mentored', value: '50+', icon: Brain }
+  ];
 
   const experiences = [
     {
@@ -21,6 +71,7 @@ const Home = () => {
       company: 'University of Houston Clear Lake',
       location: 'Houston, TX',
       period: 'August 2024 - Present',
+      current: true,
       description: [
         'Assisted professors in delivering undergraduate and graduate-level courses',
         'Supported students with programming, data analysis, and core computer science concepts',
@@ -33,6 +84,7 @@ const Home = () => {
       company: 'Wynswell Global',
       location: 'Bengaluru, India',
       period: 'March 2024 - May 2024',
+      current: false,
       description: [
         'Analyzed and processed large datasets using Python (Pandas, NumPy) to uncover trends',
         'Built interactive dashboards and visualizations using Streamlit',
@@ -52,7 +104,8 @@ const Home = () => {
         'Analyzed data to generate actionable insights',
         'Deployed backend components on AWS',
         'Followed Agile development practices'
-      ]
+      ],
+      featured: true
     },
     {
       title: 'Data Analytics and Software Project',
@@ -63,7 +116,8 @@ const Home = () => {
         'Created clear reports and visualizations',
         'Focused on accuracy and reproducibility',
         'Implemented Agile development methodology'
-      ]
+      ],
+      featured: true
     }
   ];
 
@@ -74,6 +128,7 @@ const Home = () => {
       location: 'Houston, TX',
       period: 'Expected May 2026',
       gpa: '3.667',
+      current: true,
       coursework: ['Analysis of Algorithms', 'Software Engineering', 'Database Systems', 'Mobile Development']
     },
     {
@@ -82,6 +137,7 @@ const Home = () => {
       location: 'Bengaluru, India',
       period: '2020 - 2024',
       gpa: '3.6',
+      current: false,
       coursework: ['Web Frameworks', 'Data Mining and Machine Learning', 'Object-Oriented Programming', 'Cloud Computing']
     }
   ];
@@ -94,271 +150,420 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+    <div className="min-h-screen bg-slate-950 relative overflow-hidden">
+      {/* Animated Background */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 -left-4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+      </div>
+
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-slate-950/80 backdrop-blur-lg border-b border-slate-800 z-50">
+      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        scrollY > 50 ? 'bg-slate-950/95 backdrop-blur-xl border-b border-slate-800/50 shadow-lg' : 'bg-transparent'
+      }`}>
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <div className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-              Pranith Bhukya
+            <div className="text-2xl font-bold">
+              <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+                Pranith Bhukya
+              </span>
             </div>
             <div className="hidden md:flex gap-8">
-              <button onClick={() => scrollToSection('about')} className="text-slate-300 hover:text-cyan-400 transition-colors">About</button>
-              <button onClick={() => scrollToSection('skills')} className="text-slate-300 hover:text-cyan-400 transition-colors">Skills</button>
-              <button onClick={() => scrollToSection('experience')} className="text-slate-300 hover:text-cyan-400 transition-colors">Experience</button>
-              <button onClick={() => scrollToSection('projects')} className="text-slate-300 hover:text-cyan-400 transition-colors">Projects</button>
-              <button onClick={() => scrollToSection('education')} className="text-slate-300 hover:text-cyan-400 transition-colors">Education</button>
-              <button onClick={() => scrollToSection('contact')} className="text-slate-300 hover:text-cyan-400 transition-colors">Contact</button>
+              {['About', 'Skills', 'Experience', 'Projects', 'Education', 'Contact'].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => scrollToSection(item.toLowerCase())}
+                  className={`relative text-sm font-medium transition-colors ${
+                    activeSection === item.toLowerCase()
+                      ? 'text-cyan-400'
+                      : 'text-slate-300 hover:text-cyan-400'
+                  }`}
+                >
+                  {item}
+                  {activeSection === item.toLowerCase() && (
+                    <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500"></span>
+                  )}
+                </button>
+              ))}
             </div>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="flex-1 space-y-6">
+      <section id="home" className="relative pt-32 pb-20 px-6 min-h-screen flex items-center">
+        <div className="max-w-7xl mx-auto w-full relative z-10">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8 animate-fade-in">
               <div className="inline-block">
-                <Badge className="bg-cyan-500/10 text-cyan-400 border-cyan-500/20 px-4 py-1">
+                <Badge className="bg-cyan-500/10 text-cyan-400 border-cyan-500/20 px-4 py-1.5 text-sm">
+                  <Sparkles className="w-3 h-3 inline mr-2" />
                   Available for Full-Time Opportunities
                 </Badge>
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
-                Software Engineer &
-                <span className="block bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                  Data Analyst
-                </span>
-              </h1>
-              <p className="text-xl text-slate-400 leading-relaxed">
-                2+ years of experience in data analysis, software development, and academic research. 
-                Skilled in Python, SQL, and cloud technologies with a passion for building scalable solutions.
+              <div>
+                <h1 className="text-6xl md:text-7xl font-bold text-white leading-tight mb-4">
+                  Software Engineer
+                </h1>
+                <h1 className="text-6xl md:text-7xl font-bold leading-tight">
+                  <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+                    & Data Analyst
+                  </span>
+                </h1>
+              </div>
+              <p className="text-xl text-slate-400 leading-relaxed max-w-2xl">
+                2+ years of experience building data-driven solutions and scalable software systems. 
+                Skilled in Python, SQL, and cloud technologies with a passion for turning complex problems into elegant solutions.
               </p>
               <div className="flex gap-4 pt-4">
                 <Button 
                   onClick={() => scrollToSection('contact')} 
-                  className="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-6 text-lg rounded-lg"
+                  className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg shadow-cyan-500/25 transition-all duration-300 hover:shadow-cyan-500/40 hover:scale-105"
                 >
                   Get In Touch
+                  <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
                 <Button 
                   variant="outline" 
-                  className="border-slate-700 text-slate-300 hover:bg-slate-800 px-8 py-6 text-lg rounded-lg"
+                  className="border-slate-700 bg-slate-800/50 text-slate-300 hover:bg-slate-800 hover:border-cyan-500/50 px-8 py-6 text-lg rounded-xl transition-all duration-300"
                   onClick={() => window.open('https://www.linkedin.com/in/pranith-bhukya/', '_blank')}
                 >
-                  View LinkedIn
+                  <Linkedin className="mr-2 w-5 h-5" />
+                  LinkedIn
                 </Button>
               </div>
             </div>
-            <div className="flex-shrink-0">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl blur-2xl opacity-20"></div>
-                <img 
-                  src={profileImage} 
-                  alt="Pranith Bhukya" 
-                  className="relative w-80 h-80 object-cover object-center rounded-2xl border-2 border-slate-700 shadow-2xl"
-                  style={{ objectPosition: 'center 20%' }}
-                />
+            <div className="flex justify-center md:justify-end animate-fade-in-delay">
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-300 animate-pulse"></div>
+                <div className="relative">
+                  <img 
+                    src={profileImage} 
+                    alt="Pranith Bhukya" 
+                    className="relative w-80 h-80 object-cover object-center rounded-3xl border-2 border-slate-700/50 shadow-2xl transition-transform duration-300 group-hover:scale-105"
+                    style={{ objectPosition: 'center 20%' }}
+                  />
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-slate-950/20 to-transparent"></div>
+                </div>
               </div>
             </div>
+          </div>
+          
+          {/* Scroll Indicator */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <ChevronDown className="w-6 h-6 text-cyan-400" />
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="relative py-16 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {stats.map((stat, index) => {
+              const Icon = stat.icon;
+              return (
+                <Card key={index} className="bg-slate-900/50 border-slate-800 hover:border-cyan-500/50 transition-all duration-300 hover:scale-105">
+                  <CardContent className="p-6 text-center">
+                    <Icon className="w-8 h-8 text-cyan-400 mx-auto mb-3" />
+                    <div className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-2">
+                      {stat.value}
+                    </div>
+                    <div className="text-sm text-slate-400">{stat.label}</div>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 px-6 bg-slate-900/50">
+      <section id="about" className="relative py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center">About Me</h2>
-          <Card className="bg-slate-800/50 border-slate-700">
-            <CardContent className="p-8">
-              <p className="text-lg text-slate-300 leading-relaxed mb-6">
-                I'm a passionate Software Engineer and Data Analyst with over 2 years of experience in building 
-                data-driven solutions and scalable software systems. Currently pursuing my Master's in Computer Science 
-                at the University of Houston Clear Lake while serving as a Graduate Teaching Assistant.
-              </p>
-              <p className="text-lg text-slate-300 leading-relaxed mb-6">
-                My expertise spans across full-stack development, data analytics, and cloud computing. I've successfully 
-                delivered projects involving REST APIs, data visualization, and AWS deployments. I thrive in collaborative 
-                environments and am driven by the challenge of turning complex problems into elegant solutions.
-              </p>
-              <p className="text-lg text-slate-300 leading-relaxed">
-                I'm actively seeking full-time opportunities where I can leverage my technical skills and analytical 
-                mindset to contribute to innovative projects and drive business value through technology.
-              </p>
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-white mb-4">
+              About <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Me</span>
+            </h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto rounded-full"></div>
+          </div>
+          <Card className="bg-slate-900/50 border-slate-800 backdrop-blur-sm">
+            <CardContent className="p-10">
+              <div className="space-y-6 text-lg text-slate-300 leading-relaxed">
+                <p className="first-letter:text-5xl first-letter:font-bold first-letter:text-cyan-400 first-letter:mr-2 first-letter:float-left">
+                  I'm a passionate Software Engineer and Data Analyst with over 2 years of experience in building 
+                  data-driven solutions and scalable software systems. Currently pursuing my Master's in Computer Science 
+                  at the University of Houston Clear Lake while serving as a Graduate Teaching Assistant.
+                </p>
+                <p>
+                  My expertise spans across full-stack development, data analytics, and cloud computing. I've successfully 
+                  delivered projects involving REST APIs, data visualization, and AWS deployments. I thrive in collaborative 
+                  environments and am driven by the challenge of turning complex problems into elegant solutions.
+                </p>
+                <p>
+                  I'm actively seeking full-time opportunities where I can leverage my technical skills and analytical 
+                  mindset to contribute to innovative projects and drive business value through technology.
+                </p>
+              </div>
             </CardContent>
           </Card>
         </div>
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 px-6">
+      <section id="skills" className="relative py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center">Technical Skills</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card className="bg-slate-800/50 border-slate-700 hover:border-cyan-500/50 transition-all">
-              <CardHeader>
-                <div className="flex items-center gap-3">
-                  <Code className="w-6 h-6 text-cyan-400" />
-                  <CardTitle className="text-white">Programming Languages</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {skills.programming.map((skill) => (
-                    <Badge key={skill} className="bg-slate-700 text-slate-200 hover:bg-slate-600">
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-white mb-4">
+              Technical <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Skills</span>
+            </h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto rounded-full"></div>
+          </div>
+          
+          <div className="space-y-12">
+            {/* Programming Languages */}
+            <div>
+              <h3 className="text-2xl font-semibold text-white mb-6 flex items-center">
+                <Code className="w-6 h-6 text-cyan-400 mr-3" />
+                Programming Languages
+              </h3>
+              <div className="space-y-4">
+                {skills.programming.map((skill) => (
+                  <div key={skill.name} className="group">
+                    <div className="flex justify-between mb-2">
+                      <span className="text-slate-300 font-medium">{skill.name}</span>
+                      <span className="text-cyan-400 font-semibold">{skill.level}%</span>
+                    </div>
+                    <div className="h-3 bg-slate-800 rounded-full overflow-hidden">
+                      <div 
+                        className="h-full bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full transition-all duration-1000 ease-out"
+                        style={{ width: `${skill.level}%` }}
+                      >
+                        <div className="h-full bg-white/20 animate-pulse"></div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-            <Card className="bg-slate-800/50 border-slate-700 hover:border-cyan-500/50 transition-all">
-              <CardHeader>
-                <div className="flex items-center gap-3">
-                  <Database className="w-6 h-6 text-cyan-400" />
-                  <CardTitle className="text-white">Frameworks & Libraries</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {skills.frameworks.map((skill) => (
-                    <Badge key={skill} className="bg-slate-700 text-slate-200 hover:bg-slate-600">
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+            {/* Frameworks & Libraries */}
+            <div>
+              <h3 className="text-2xl font-semibold text-white mb-6 flex items-center">
+                <Database className="w-6 h-6 text-cyan-400 mr-3" />
+                Frameworks & Libraries
+              </h3>
+              <div className="space-y-4">
+                {skills.frameworks.map((skill) => (
+                  <div key={skill.name} className="group">
+                    <div className="flex justify-between mb-2">
+                      <span className="text-slate-300 font-medium">{skill.name}</span>
+                      <span className="text-cyan-400 font-semibold">{skill.level}%</span>
+                    </div>
+                    <div className="h-3 bg-slate-800 rounded-full overflow-hidden">
+                      <div 
+                        className="h-full bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full transition-all duration-1000 ease-out"
+                        style={{ width: `${skill.level}%` }}
+                      >
+                        <div className="h-full bg-white/20 animate-pulse"></div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-            <Card className="bg-slate-800/50 border-slate-700 hover:border-cyan-500/50 transition-all">
-              <CardHeader>
-                <div className="flex items-center gap-3">
-                  <Cloud className="w-6 h-6 text-cyan-400" />
-                  <CardTitle className="text-white">Cloud & AWS</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {skills.cloud.map((skill) => (
-                    <Badge key={skill} className="bg-slate-700 text-slate-200 hover:bg-slate-600">
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+            {/* Cloud & AWS */}
+            <div>
+              <h3 className="text-2xl font-semibold text-white mb-6 flex items-center">
+                <Cloud className="w-6 h-6 text-cyan-400 mr-3" />
+                Cloud & AWS
+              </h3>
+              <div className="space-y-4">
+                {skills.cloud.map((skill) => (
+                  <div key={skill.name} className="group">
+                    <div className="flex justify-between mb-2">
+                      <span className="text-slate-300 font-medium">{skill.name}</span>
+                      <span className="text-cyan-400 font-semibold">{skill.level}%</span>
+                    </div>
+                    <div className="h-3 bg-slate-800 rounded-full overflow-hidden">
+                      <div 
+                        className="h-full bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full transition-all duration-1000 ease-out"
+                        style={{ width: `${skill.level}%` }}
+                      >
+                        <div className="h-full bg-white/20 animate-pulse"></div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-            <Card className="bg-slate-800/50 border-slate-700 hover:border-cyan-500/50 transition-all">
-              <CardHeader>
-                <div className="flex items-center gap-3">
-                  <Database className="w-6 h-6 text-cyan-400" />
-                  <CardTitle className="text-white">Databases</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {skills.databases.map((skill) => (
-                    <Badge key={skill} className="bg-slate-700 text-slate-200 hover:bg-slate-600">
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+            {/* Databases */}
+            <div>
+              <h3 className="text-2xl font-semibold text-white mb-6 flex items-center">
+                <Database className="w-6 h-6 text-cyan-400 mr-3" />
+                Databases
+              </h3>
+              <div className="space-y-4">
+                {skills.databases.map((skill) => (
+                  <div key={skill.name} className="group">
+                    <div className="flex justify-between mb-2">
+                      <span className="text-slate-300 font-medium">{skill.name}</span>
+                      <span className="text-cyan-400 font-semibold">{skill.level}%</span>
+                    </div>
+                    <div className="h-3 bg-slate-800 rounded-full overflow-hidden">
+                      <div 
+                        className="h-full bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full transition-all duration-1000 ease-out"
+                        style={{ width: `${skill.level}%` }}
+                      >
+                        <div className="h-full bg-white/20 animate-pulse"></div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-            <Card className="bg-slate-800/50 border-slate-700 hover:border-cyan-500/50 transition-all md:col-span-2">
-              <CardHeader>
-                <div className="flex items-center gap-3">
-                  <Award className="w-6 h-6 text-cyan-400" />
-                  <CardTitle className="text-white">Tools & Methodologies</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {skills.tools.map((skill) => (
-                    <Badge key={skill} className="bg-slate-700 text-slate-200 hover:bg-slate-600">
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+            {/* Additional Skills */}
+            <div>
+              <h3 className="text-2xl font-semibold text-white mb-6 flex items-center">
+                <Award className="w-6 h-6 text-cyan-400 mr-3" />
+                Tools & Methodologies
+              </h3>
+              <div className="flex flex-wrap gap-3">
+                {['Agile', 'Scrum', 'Git', 'Streamlit', 'Unit Testing'].map((skill) => (
+                  <Badge key={skill} className="bg-slate-800 text-slate-200 hover:bg-slate-700 px-4 py-2 text-base border border-slate-700 hover:border-cyan-500/50 transition-all duration-300">
+                    {skill}
+                  </Badge>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-20 px-6 bg-slate-900/50">
+      <section id="experience" className="relative py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center">Work Experience</h2>
-          <div className="space-y-6">
-            {experiences.map((exp, index) => (
-              <Card key={index} className="bg-slate-800/50 border-slate-700 hover:border-cyan-500/50 transition-all">
-                <CardHeader>
-                  <div className="flex items-start justify-between flex-wrap gap-4">
-                    <div className="flex items-start gap-4">
-                      <div className="bg-cyan-500/10 p-3 rounded-lg">
-                        <Briefcase className="w-6 h-6 text-cyan-400" />
-                      </div>
-                      <div>
-                        <CardTitle className="text-white text-xl">{exp.title}</CardTitle>
-                        <CardDescription className="text-cyan-400 text-lg">{exp.company}</CardDescription>
-                        <div className="flex items-center gap-4 mt-2 text-slate-400">
-                          <div className="flex items-center gap-1">
-                            <MapPin className="w-4 h-4" />
-                            <span>{exp.location}</span>
-                          </div>
-                          <span>{exp.period}</span>
-                        </div>
-                      </div>
-                    </div>
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-white mb-4">
+              Work <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Experience</span>
+            </h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto rounded-full"></div>
+          </div>
+          
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-cyan-500 to-blue-600"></div>
+            
+            <div className="space-y-12">
+              {experiences.map((exp, index) => (
+                <div key={index} className={`relative flex items-center ${
+                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                }`}>
+                  {/* Timeline dot */}
+                  <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 border-4 border-slate-950 z-10">
+                    {exp.current && (
+                      <div className="absolute inset-0 rounded-full bg-cyan-400 animate-ping"></div>
+                    )}
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    {exp.description.map((item, i) => (
-                      <li key={i} className="text-slate-300 flex items-start gap-2">
-                        <span className="text-cyan-400 mt-1.5">•</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
+                  
+                  <div className={`w-full md:w-5/12 ${
+                    index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'
+                  }`}>
+                    <Card className="bg-slate-900/50 border-slate-800 hover:border-cyan-500/50 transition-all duration-300 hover:scale-105 group">
+                      <CardHeader>
+                        <div className="flex items-start gap-4">
+                          <div className="bg-gradient-to-r from-cyan-500 to-blue-600 p-3 rounded-xl group-hover:scale-110 transition-transform">
+                            <Briefcase className="w-6 h-6 text-white" />
+                          </div>
+                          <div className="flex-1">
+                            <div className="flex items-center gap-2 mb-1">
+                              <CardTitle className="text-white text-xl">{exp.title}</CardTitle>
+                              {exp.current && (
+                                <Badge className="bg-cyan-500/10 text-cyan-400 border-cyan-500/20">
+                                  Current
+                                </Badge>
+                              )}
+                            </div>
+                            <CardDescription className="text-cyan-400 text-lg font-medium">{exp.company}</CardDescription>
+                            <div className="flex flex-wrap items-center gap-3 mt-2 text-slate-400 text-sm">
+                              <div className="flex items-center gap-1">
+                                <MapPin className="w-4 h-4" />
+                                <span>{exp.location}</span>
+                              </div>
+                              <span className="text-slate-600">•</span>
+                              <span>{exp.period}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <ul className="space-y-2">
+                          {exp.description.map((item, i) => (
+                            <li key={i} className="text-slate-300 flex items-start gap-2">
+                              <span className="text-cyan-400 mt-1.5 flex-shrink-0">▸</span>
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 px-6">
+      <section id="projects" className="relative py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center">Featured Projects</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-white mb-4">
+              Featured <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Projects</span>
+            </h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto rounded-full"></div>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <Card key={index} className="bg-slate-800/50 border-slate-700 hover:border-cyan-500/50 transition-all">
-                <CardHeader>
-                  <CardTitle className="text-white text-xl">{project.title}</CardTitle>
-                  <CardDescription className="text-slate-300 text-base">{project.description}</CardDescription>
+              <Card key={index} className="bg-slate-900/50 border-slate-800 hover:border-cyan-500/50 transition-all duration-300 hover:scale-105 group overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-white text-xl mb-3 group-hover:text-cyan-400 transition-colors">
+                    {project.title}
+                  </CardTitle>
+                  <CardDescription className="text-slate-300 text-base leading-relaxed">
+                    {project.description}
+                  </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-6">
                   <div>
-                    <h4 className="text-cyan-400 font-semibold mb-2">Technologies:</h4>
+                    <h4 className="text-cyan-400 font-semibold mb-3 flex items-center">
+                      <Code className="w-4 h-4 mr-2" />
+                      Technologies
+                    </h4>
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech) => (
-                        <Badge key={tech} className="bg-slate-700 text-slate-200">
+                        <Badge key={tech} className="bg-slate-800 text-slate-200 border-slate-700 hover:border-cyan-500/50 transition-all">
                           {tech}
                         </Badge>
                       ))}
                     </div>
                   </div>
                   <div>
-                    <h4 className="text-cyan-400 font-semibold mb-2">Key Highlights:</h4>
-                    <ul className="space-y-1">
+                    <h4 className="text-cyan-400 font-semibold mb-3 flex items-center">
+                      <Sparkles className="w-4 h-4 mr-2" />
+                      Key Highlights
+                    </h4>
+                    <ul className="space-y-2">
                       {project.highlights.map((highlight, i) => (
                         <li key={i} className="text-slate-300 flex items-start gap-2 text-sm">
-                          <span className="text-cyan-400 mt-1">•</span>
+                          <span className="text-cyan-400 mt-1 flex-shrink-0">✓</span>
                           <span>{highlight}</span>
                         </li>
                       ))}
@@ -372,26 +577,41 @@ const Home = () => {
       </section>
 
       {/* Education Section */}
-      <section id="education" className="py-20 px-6 bg-slate-900/50">
+      <section id="education" className="relative py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center">Education</h2>
-          <div className="space-y-6">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-white mb-4">
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Education</span>
+            </h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto rounded-full"></div>
+          </div>
+          
+          <div className="space-y-8">
             {education.map((edu, index) => (
-              <Card key={index} className="bg-slate-800/50 border-slate-700">
+              <Card key={index} className="bg-slate-900/50 border-slate-800 hover:border-cyan-500/50 transition-all duration-300 hover:scale-102 group">
                 <CardHeader>
                   <div className="flex items-start gap-4">
-                    <div className="bg-cyan-500/10 p-3 rounded-lg">
-                      <GraduationCap className="w-6 h-6 text-cyan-400" />
+                    <div className="bg-gradient-to-r from-cyan-500 to-blue-600 p-3 rounded-xl group-hover:scale-110 transition-transform">
+                      <GraduationCap className="w-6 h-6 text-white" />
                     </div>
                     <div className="flex-1">
-                      <CardTitle className="text-white text-xl">{edu.degree}</CardTitle>
-                      <CardDescription className="text-cyan-400 text-lg">{edu.institution}</CardDescription>
-                      <div className="flex items-center gap-4 mt-2 text-slate-400">
+                      <div className="flex items-center gap-2 mb-1 flex-wrap">
+                        <CardTitle className="text-white text-xl">{edu.degree}</CardTitle>
+                        {edu.current && (
+                          <Badge className="bg-cyan-500/10 text-cyan-400 border-cyan-500/20">
+                            In Progress
+                          </Badge>
+                        )}
+                      </div>
+                      <CardDescription className="text-cyan-400 text-lg font-medium">{edu.institution}</CardDescription>
+                      <div className="flex flex-wrap items-center gap-3 mt-2 text-slate-400">
                         <div className="flex items-center gap-1">
                           <MapPin className="w-4 h-4" />
                           <span>{edu.location}</span>
                         </div>
+                        <span className="text-slate-600">•</span>
                         <span>{edu.period}</span>
+                        <span className="text-slate-600">•</span>
                         <span className="text-cyan-400 font-semibold">GPA: {edu.gpa}</span>
                       </div>
                     </div>
@@ -399,10 +619,10 @@ const Home = () => {
                 </CardHeader>
                 <CardContent>
                   <div>
-                    <h4 className="text-slate-400 font-semibold mb-2">Relevant Coursework:</h4>
+                    <h4 className="text-slate-400 font-semibold mb-3">Relevant Coursework:</h4>
                     <div className="flex flex-wrap gap-2">
                       {edu.coursework.map((course) => (
-                        <Badge key={course} className="bg-slate-700 text-slate-200">
+                        <Badge key={course} className="bg-slate-800 text-slate-200 border-slate-700 hover:border-cyan-500/50 transition-all">
                           {course}
                         </Badge>
                       ))}
@@ -416,49 +636,66 @@ const Home = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">Let's Connect</h2>
-          <p className="text-xl text-slate-400 mb-12">
-            I'm always open to discussing new opportunities, projects, or collaborations.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            <Card className="bg-slate-800/50 border-slate-700 hover:border-cyan-500/50 transition-all">
-              <CardContent className="p-6">
-                <Mail className="w-8 h-8 text-cyan-400 mx-auto mb-3" />
-                <h3 className="text-white font-semibold mb-2">Email</h3>
-                <a href="mailto:pranithbhukya09@gmail.com" className="text-cyan-400 hover:text-cyan-300">
+      <section id="contact" className="relative py-20 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-white mb-4">
+              Let's <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Connect</span>
+            </h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto rounded-full mb-6"></div>
+            <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+              I'm always open to discussing new opportunities, projects, or collaborations. Feel free to reach out!
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Card className="bg-slate-900/50 border-slate-800 hover:border-cyan-500/50 transition-all duration-300 hover:scale-105 group">
+              <CardContent className="p-8 text-center">
+                <div className="bg-gradient-to-r from-cyan-500 to-blue-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                  <Mail className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-white font-semibold text-lg mb-2">Email</h3>
+                <a href="mailto:pranithbhukya09@gmail.com" className="text-cyan-400 hover:text-cyan-300 transition-colors">
                   pranithbhukya09@gmail.com
                 </a>
               </CardContent>
             </Card>
-            <Card className="bg-slate-800/50 border-slate-700 hover:border-cyan-500/50 transition-all">
-              <CardContent className="p-6">
-                <Phone className="w-8 h-8 text-cyan-400 mx-auto mb-3" />
-                <h3 className="text-white font-semibold mb-2">Phone</h3>
-                <a href="tel:+13464902475" className="text-cyan-400 hover:text-cyan-300">
+            
+            <Card className="bg-slate-900/50 border-slate-800 hover:border-cyan-500/50 transition-all duration-300 hover:scale-105 group">
+              <CardContent className="p-8 text-center">
+                <div className="bg-gradient-to-r from-cyan-500 to-blue-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                  <Phone className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-white font-semibold text-lg mb-2">Phone</h3>
+                <a href="tel:+13464902475" className="text-cyan-400 hover:text-cyan-300 transition-colors">
                   +1 (346) 490-2475
                 </a>
               </CardContent>
             </Card>
-            <Card className="bg-slate-800/50 border-slate-700 hover:border-cyan-500/50 transition-all">
-              <CardContent className="p-6">
-                <Linkedin className="w-8 h-8 text-cyan-400 mx-auto mb-3" />
-                <h3 className="text-white font-semibold mb-2">LinkedIn</h3>
+            
+            <Card className="bg-slate-900/50 border-slate-800 hover:border-cyan-500/50 transition-all duration-300 hover:scale-105 group">
+              <CardContent className="p-8 text-center">
+                <div className="bg-gradient-to-r from-cyan-500 to-blue-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                  <Linkedin className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-white font-semibold text-lg mb-2">LinkedIn</h3>
                 <a 
                   href="https://www.linkedin.com/in/pranith-bhukya/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-cyan-400 hover:text-cyan-300"
+                  className="text-cyan-400 hover:text-cyan-300 transition-colors"
                 >
                   linkedin.com/in/pranith-bhukya
                 </a>
               </CardContent>
             </Card>
-            <Card className="bg-slate-800/50 border-slate-700 hover:border-cyan-500/50 transition-all">
-              <CardContent className="p-6">
-                <MapPin className="w-8 h-8 text-cyan-400 mx-auto mb-3" />
-                <h3 className="text-white font-semibold mb-2">Location</h3>
+            
+            <Card className="bg-slate-900/50 border-slate-800 hover:border-cyan-500/50 transition-all duration-300 hover:scale-105 group">
+              <CardContent className="p-8 text-center">
+                <div className="bg-gradient-to-r from-cyan-500 to-blue-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                  <MapPin className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-white font-semibold text-lg mb-2">Location</h3>
                 <p className="text-cyan-400">Houston, TX</p>
               </CardContent>
             </Card>
@@ -467,9 +704,14 @@ const Home = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-6 border-t border-slate-800">
-        <div className="max-w-7xl mx-auto text-center text-slate-400">
-          <p>&copy; 2025 Pranith Bhukya. All rights reserved.</p>
+      <footer className="relative py-8 px-6 border-t border-slate-800/50">
+        <div className="max-w-7xl mx-auto text-center">
+          <p className="text-slate-400">
+            &copy; 2025 Pranith Bhukya. All rights reserved.
+          </p>
+          <p className="text-slate-500 text-sm mt-2">
+            Built with React & Tailwind CSS
+          </p>
         </div>
       </footer>
     </div>
