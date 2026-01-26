@@ -243,11 +243,11 @@ const Home = () => {
               </div>
               <div>
                 <h1 className="text-6xl md:text-7xl font-bold text-white leading-tight mb-4">
-                  Software Engineer
+                  Data Analyst
                 </h1>
                 <h1 className="text-6xl md:text-7xl font-bold leading-tight">
                   <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
-                    & Data Analyst
+                    & Software Engineer
                   </span>
                 </h1>
               </div>
