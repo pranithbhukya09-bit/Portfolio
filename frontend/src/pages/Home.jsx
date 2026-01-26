@@ -271,6 +271,21 @@ const Home = () => {
                   <Linkedin className="mr-2 w-5 h-5" />
                   LinkedIn
                 </Button>
+                <Button 
+                  variant="outline" 
+                  className="border-slate-700 bg-slate-800/50 text-slate-300 hover:bg-slate-800 hover:border-cyan-500/50 px-8 py-6 text-lg rounded-xl transition-all duration-300"
+                  onClick={() => {
+                    const link = document.createElement('a');
+                    link.href = '/Pranith_Bhukya_Resume.pdf';
+                    link.download = 'Pranith_Bhukya_Resume.pdf';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                  }}
+                >
+                  <ExternalLink className="mr-2 w-5 h-5" />
+                  Download Resume
+                </Button>
               </div>
             </div>
             <div className="flex justify-center md:justify-end animate-fade-in-delay">
