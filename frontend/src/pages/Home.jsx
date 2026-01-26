@@ -156,7 +156,8 @@ const Home = () => {
                 <img 
                   src={profileImage} 
                   alt="Pranith Bhukya" 
-                  className="relative w-80 h-80 object-cover rounded-2xl border-2 border-slate-700 shadow-2xl"
+                  className="relative w-80 h-80 object-cover object-center rounded-2xl border-2 border-slate-700 shadow-2xl"
+                  style={{ objectPosition: 'center 20%' }}
                 />
               </div>
             </div>
