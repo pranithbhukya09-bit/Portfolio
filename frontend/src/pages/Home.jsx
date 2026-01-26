@@ -31,32 +31,32 @@ const Home = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const skills = {
-    programming: [
-      { name: 'Python', level: 95 },
-      { name: 'Java', level: 85 },
-      { name: 'JavaScript', level: 90 },
-      { name: 'Swift', level: 75 },
-      { name: 'SQL', level: 90 }
-    ],
-    frameworks: [
-      { name: 'React', level: 90 },
-      { name: 'Node.js', level: 85 },
-      { name: 'NumPy', level: 88 },
-      { name: 'Pandas', level: 92 },
-      { name: 'LangChain', level: 80 }
-    ],
-    cloud: [
-      { name: 'AWS', level: 85 },
-      { name: 'Bedrock', level: 80 },
-      { name: 'Lambda', level: 82 },
-      { name: 'DynamoDB', level: 88 }
-    ],
-    databases: [
-      { name: 'MySQL', level: 90 },
-      { name: 'DynamoDB', level: 88 },
-      { name: 'SQL', level: 92 }
-    ]
+  const skillCategories = {
+    programming: {
+      title: 'Programming Languages',
+      icon: Code,
+      skills: ['Python', 'Java', 'JavaScript', 'Swift', 'SQL']
+    },
+    frameworks: {
+      title: 'Frameworks & Libraries',
+      icon: Database,
+      skills: ['React', 'Node.js', 'NumPy', 'Pandas', 'LangChain', 'Streamlit']
+    },
+    cloud: {
+      title: 'Cloud & AWS',
+      icon: Cloud,
+      skills: ['AWS', 'Bedrock', 'Lambda', 'DynamoDB', 'EC2', 'S3']
+    },
+    databases: {
+      title: 'Databases',
+      icon: Database,
+      skills: ['MySQL', 'DynamoDB', 'SQL', 'MongoDB', 'PostgreSQL']
+    },
+    tools: {
+      title: 'Tools & Methodologies',
+      icon: Award,
+      skills: ['Agile', 'Scrum', 'Git', 'Unit Testing', 'CI/CD', 'REST APIs']
+    }
   };
 
   const stats = [
