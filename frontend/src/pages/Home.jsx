@@ -8,6 +8,7 @@ const Home = () => {
   const profileImage = "https://customer-assets.emergentagent.com/job_career-analyzer-8/artifacts/3jlewvd3_efe62cd4-6ee9-4106-a55a-34a2c979de14.jpeg";
   const [scrollY, setScrollY] = useState(0);
   const [activeSection, setActiveSection] = useState('home');
+  const [activeSkillTab, setActiveSkillTab] = useState('programming');
 
   useEffect(() => {
     const handleScroll = () => {
