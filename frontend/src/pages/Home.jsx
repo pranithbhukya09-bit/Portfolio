@@ -391,15 +391,28 @@ const Home = () => {
                     className={`${activeSkillTab === category ? 'block' : 'hidden'} animate-fade-in`}
                   >
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                      {skillCategories[category].skills.map((skill) => (
-                        <div
-                          key={skill}
-                          className="group bg-slate-800/50 border border-slate-700 rounded-xl p-6 text-center hover:border-cyan-500/50 hover:bg-slate-800 transition-all duration-300 hover:scale-105"
-                        >
-                          <div className="text-2xl mb-2">💻</div>
-                          <div className="text-slate-200 font-medium">{skill}</div>
-                        </div>
-                      ))}
+                      {skillCategories[category].skills.map((skill) => {
+                        const skillData = skillIcons[skill] || { icon: '💻', color: 'from-gray-400 to-gray-600', bg: 'bg-gray-500/10' };
+                        return (
+                          <div
+                            key={skill}
+                            className={`group ${skillData.bg} border border-slate-700 rounded-xl p-6 text-center hover:border-cyan-500/50 transition-all duration-300 hover:scale-105 hover:shadow-lg relative overflow-hidden`}
+                          >
+                            {/* Gradient background on hover */}
+                            <div className={`absolute inset-0 bg-gradient-to-br ${skillData.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
+                            
+                            {/* Icon */}
+                            <div className="relative text-4xl mb-3 transform group-hover:scale-110 transition-transform duration-300">
+                              {skillData.icon}
+                            </div>
+                            
+                            {/* Skill name */}
+                            <div className={`relative text-slate-200 font-medium bg-gradient-to-r ${skillData.color} bg-clip-text group-hover:text-transparent transition-all duration-300`}>
+                              {skill}
+                            </div>
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
                 ))}
