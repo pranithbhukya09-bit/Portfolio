@@ -295,15 +295,27 @@ const Home = () => {
       <main className="pt-40 pb-20">
         <div className="max-w-5xl mx-auto px-6">
           
-          {/* About Section */}
+          {/* About Section with Photo */}
           <section id="about" className="mb-20">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">About</h2>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Software Engineer and AI & Data Systems Engineer with experience building Generative AI applications, 
-              scalable backend systems, and production-grade databases. Published researcher with expertise in AI governance, 
-              database architecture, full-stack development, and data analytics. Passionate about responsible AI, system design, 
-              and solving complex technical problems.
-            </p>
+            <div className="flex flex-col md:flex-row gap-8 items-start">
+              <div className="flex-shrink-0">
+                <img 
+                  src="https://customer-assets.emergentagent.com/job_career-analyzer-8/artifacts/3jlewvd3_efe62cd4-6ee9-4106-a55a-34a2c979de14.jpeg"
+                  alt="Pranith Bhukya" 
+                  className="w-48 h-48 object-cover object-center rounded-xl shadow-md border border-gray-200"
+                  style={{ objectPosition: 'center 20%' }}
+                />
+              </div>
+              <div className="flex-1">
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Software Engineer and AI & Data Systems Engineer with experience building Generative AI applications, 
+                  scalable backend systems, and production-grade databases. Published researcher with expertise in AI governance, 
+                  database architecture, full-stack development, and data analytics. Passionate about responsible AI, system design, 
+                  and solving complex technical problems.
+                </p>
+              </div>
+            </div>
           </section>
 
           {/* Projects Section */}
