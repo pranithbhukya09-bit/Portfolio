@@ -230,7 +230,7 @@ const Home = () => {
               </span>
             </div>
             <div className="hidden md:flex gap-8">
-              {['About', 'Skills', 'Experience', 'Projects', 'Education', 'Contact'].map((item) => (
+              {['About', 'Skills', 'Experience', 'Projects', 'Publications', 'Education', 'Contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
