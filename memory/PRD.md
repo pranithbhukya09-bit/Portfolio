@@ -72,6 +72,10 @@ A professional portfolio website for Pranith Bhukya, a Software Engineer and Dat
 - [x] Light professional theme (Dec 2025)
 - [x] Enhanced project descriptions (Dec 2025)
 - [x] Certifications as clickable links instead of images (Dec 2025)
+- [x] Shortened paragraphs into sharp bullet points (Dec 2025)
+- [x] Updated About section with new professional content (Dec 2025)
+- [x] Improved spacing throughout the design (Dec 2025)
+- [x] 2-column grid layout for projects (Dec 2025)
 - [x] Responsive design
 - [x] Smooth scroll navigation
 - [x] Resume download functionality
