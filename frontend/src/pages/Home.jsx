@@ -181,6 +181,27 @@ const Home = () => {
     }
   ];
 
+  const publications = [
+    {
+      title: 'A Comprehensive Literature Review on the Internet of Things (IoT): Evolution, Applications, Challenges, and Future Directions',
+      type: 'Journal Article',
+      venue: 'International Journal of Scientific Research in Computer Science, Engineering and Information Technology',
+      year: '2024',
+      url: 'https://ijsrcseit.com/paper/CSEIT2410323.pdf',
+      description: 'Conducted comprehensive analysis of IoT ecosystem evolution, examining current applications, technical challenges, and emerging trends in connected device systems.',
+      impact: 'Published in peer-reviewed international journal, contributing to academic understanding of IoT infrastructure'
+    },
+    {
+      title: 'Navigating Online Aisles: Collaborative Filtering For Personalised Grocery Suggestions',
+      type: 'Conference Paper',
+      venue: 'IEEE International Conference on Communications and Computer Science-2024',
+      location: 'B.M.S College of Engineering, Bangalore',
+      year: '2024',
+      description: 'Developed and presented machine learning-based recommendation system using collaborative filtering algorithms to enhance e-commerce grocery shopping experience.',
+      impact: 'Presented at international IEEE conference, demonstrating practical application of ML in retail optimization'
+    }
+  ];
+
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
