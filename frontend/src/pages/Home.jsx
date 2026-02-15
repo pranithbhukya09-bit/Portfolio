@@ -383,9 +383,14 @@ const Home = () => {
           <section id="about" className="py-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">About</h2>
             <p className="text-gray-700 leading-relaxed text-lg">
-              Software Engineer and AI & Data Systems Engineer with experience building Generative AI applications, 
+              Software Engineer and AI & Data Systems Engineer with hands-on experience building Generative AI applications, 
               scalable backend systems, and production-grade databases. Published researcher with expertise in AI governance, 
-              database architecture, and data analytics. Currently serving as President of the Indian Student Association.
+              database architecture, and data analytics. Currently serving as President of the Indian Student Association at 
+              the University of Houston Clear Lake, leading strategic initiatives and community engagement while pursuing a 
+              Master's in Computer Science. Passionate about responsible AI development, system design, and solving complex 
+              technical problems through innovative solutions. Experienced in full-stack development with React, Node.js, Python, 
+              and AWS, with a strong foundation in data analysis using SQL, Pandas, and NumPy. Actively seeking full-time 
+              opportunities where I can leverage my technical skills and leadership experience to contribute to impactful projects.
             </p>
           </section>
 
