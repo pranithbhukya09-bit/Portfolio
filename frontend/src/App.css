@@ -12,47 +12,13 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #020617;
-}
-
-/* Custom animations */
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fade-in-delay {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  50% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in {
-  animation: fade-in 0.8s ease-out;
-}
-
-.animate-fade-in-delay {
-  animation: fade-in-delay 1.2s ease-out;
+  background: #ffffff;
+  color: #111827;
 }
 
 /* Smooth transitions for interactive elements */
-button, a, .transition-all {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+button, a {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Custom scrollbar */
@@ -61,27 +27,27 @@ button, a, .transition-all {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0f172a;
+  background: #f8fafc;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #06b6d4, #3b82f6);
+  background: #cbd5e1;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #0891b2, #2563eb);
+  background: #94a3b8;
 }
 
 /* Gradient text selection */
 ::selection {
-  background: rgba(6, 182, 212, 0.3);
-  color: #fff;
+  background: rgba(37, 99, 235, 0.2);
+  color: #111827;
 }
 
 ::-moz-selection {
-  background: rgba(6, 182, 212, 0.3);
-  color: #fff;
+  background: rgba(37, 99, 235, 0.2);
+  color: #111827;
 }
 
 /* Remove default focus outline and add custom */
@@ -90,7 +56,7 @@ button, a, .transition-all {
 }
 
 *:focus-visible {
-  outline: 2px solid #06b6d4;
+  outline: 2px solid #2563eb;
   outline-offset: 2px;
 }
 
@@ -98,18 +64,4 @@ button, a, .transition-all {
 img {
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
-}
-
-/* Scale transition utilities */
-.hover\:scale-102:hover {
-  transform: scale(1.02);
-}
-
-.hover\:scale-105:hover {
-  transform: scale(1.05);
-}
-
-/* Custom gradient backgrounds */
-.bg-gradient-radial {
-  background: radial-gradient(circle at center, rgba(6, 182, 212, 0.1), transparent);
 }
