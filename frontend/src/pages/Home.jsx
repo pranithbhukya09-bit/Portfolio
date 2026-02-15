@@ -144,7 +144,8 @@ const Home = () => {
         'Impact: Streamlined data access for administrators, enabling data-driven insights for academic planning',
         'Followed Agile methodology with proper version control and comprehensive documentation'
       ],
-      featured: true
+      featured: true,
+      period: '2023 - 2024'
     },
     {
       title: 'End-to-End Data Analytics Pipeline',
@@ -156,7 +157,60 @@ const Home = () => {
         'Impact: Reduced data processing time by 60% while improving accuracy and reproducibility',
         'Created clear, actionable reports with visualizations for stakeholder decision-making'
       ],
-      featured: true
+      featured: true,
+      period: '2024'
+    },
+    {
+      title: 'Hostel Management System',
+      description: 'Built comprehensive hostel administration platform to streamline hostel-related operations including room allocation, fee management, attendance tracking, and communication systems.',
+      technologies: ['Java', 'SQL', 'Spring Boot', 'REST APIs'],
+      highlights: [
+        'Challenge: Inefficient manual processes for hostel administration affecting 500+ residents',
+        'Solution: Developed automated system with modules for room allocation, fee tracking, and attendance management',
+        'Impact: Reduced administrative workload by 70% and improved communication efficiency',
+        'Implemented secure authentication and role-based access control for different user types'
+      ],
+      featured: true,
+      period: 'September 2023 - January 2024'
+    },
+    {
+      title: 'Student Information System',
+      description: 'Collaborated with cross-functional team to design and implement enterprise-grade student information management system with comprehensive academic tracking capabilities.',
+      technologies: ['Java', 'MySQL', 'Object-Oriented Design', 'MVC Architecture'],
+      highlights: [
+        'Challenge: Need for centralized system to manage student records, courses, and academic performance',
+        'Solution: Architected OOP-based system with modular design for registration, course management, and grading',
+        'Impact: Successfully deployed to manage 1000+ student records with real-time grade tracking',
+        'Applied design patterns and best practices for maintainable, scalable codebase'
+      ],
+      featured: false,
+      period: 'March 2023 - August 2023'
+    },
+    {
+      title: 'Algorithmic Trading Simulator',
+      description: 'Created sophisticated backtesting platform in Python to evaluate and optimize algorithmic trading strategies using historical market data and performance metrics.',
+      technologies: ['Python', 'Pandas', 'NumPy', 'Data Analysis', 'Financial Modeling'],
+      highlights: [
+        'Challenge: Need to test trading strategies without financial risk using historical data',
+        'Solution: Built simulation engine with multiple trading algorithms including moving averages and momentum strategies',
+        'Impact: Enabled risk-free strategy testing with detailed performance analytics and visualization',
+        'Implemented portfolio optimization techniques and risk management calculations'
+      ],
+      featured: false,
+      period: 'October 2022 - February 2023'
+    },
+    {
+      title: 'Online Book Store System',
+      description: 'Developed full-stack e-commerce platform for online book sales featuring user authentication, shopping cart functionality, and secure payment processing.',
+      technologies: ['React.js', 'Node.js', 'Express', 'MongoDB', 'REST APIs'],
+      highlights: [
+        'Challenge: Create user-friendly e-commerce platform with complete purchase workflow',
+        'Solution: Built responsive React frontend with Node.js backend and RESTful API architecture',
+        'Impact: Delivered fully functional bookstore with inventory management and order processing',
+        'Implemented search functionality, user reviews, and recommendation features'
+      ],
+      featured: false,
+      period: 'March 2022 - September 2022'
     }
   ];
 
