@@ -252,8 +252,7 @@ const Home = () => {
                 </h1>
               </div>
               <p className="text-xl text-slate-400 leading-relaxed max-w-2xl">
-                2+ years of experience building data-driven solutions and scalable software systems. 
-                Skilled in Python, SQL, and cloud technologies with a passion for turning complex problems into elegant solutions.
+                Experienced in building scalable software systems and delivering data-driven insights across full-stack development, cloud infrastructure, and analytics. Proven track record in solving complex technical challenges with measurable business impact through Python, SQL, React, and AWS technologies.
               </p>
               <div className="flex gap-4 pt-4">
                 <Button 
