@@ -33,6 +33,16 @@ async def health_check():
     except Exception as e:
         return {"status": "unhealthy", "database": "disconnected", "error": str(e)}
 
+# Health check at /api/health for Emergent deployment
+@app.get("/api/health")
+async def api_health_check():
+    """Health check endpoint for Emergent deployment"""
+    try:
+        await client.server_info()
+        return {"status": "healthy", "database": "connected"}
+    except Exception as e:
+        return {"status": "unhealthy", "database": "disconnected", "error": str(e)}
+
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
 
