@@ -401,8 +401,8 @@ const Home = () => {
         <div className="max-w-6xl mx-auto px-8">
           
           {/* About */}
-          <section id="about" className="py-20">
-            <div className="border-t border-gray-100 pt-20">
+          <section id="about" className="py-12">
+            <div className="border-t border-gray-100 pt-12">
               <h2 className="text-3xl font-bold text-[#0F172A] mb-8">About</h2>
               <p className="text-[#0F172A]/70 leading-relaxed text-lg max-w-4xl">
                 Software Engineer specializing in <span className="text-[#0F172A] font-medium">AI & Data Systems</span>, building scalable backend architectures, Generative AI applications, and production-grade databases. Published researcher with expertise in AI governance, system design, and data analytics. Experienced in React, Node.js, Python, AWS, and SQL-based data engineering. Passionate about responsible AI and solving complex engineering challenges.
@@ -411,8 +411,8 @@ const Home = () => {
           </section>
 
           {/* Projects */}
-          <section id="projects" className="py-20">
-            <div className="border-t border-gray-100 pt-20">
+          <section id="projects" className="py-12">
+            <div className="border-t border-gray-100 pt-12">
               <h2 className="text-3xl font-bold text-[#0F172A] mb-12">Projects</h2>
               <div className="space-y-8">
                 {projects.map((project, index) => (
@@ -476,8 +476,8 @@ const Home = () => {
           </section>
 
           {/* Experience */}
-          <section id="experience" className="py-20">
-            <div className="border-t border-gray-100 pt-20">
+          <section id="experience" className="py-12">
+            <div className="border-t border-gray-100 pt-12">
               <h2 className="text-3xl font-bold text-[#0F172A] mb-12">Experience</h2>
               <div className="space-y-10">
                 {experiences.map((exp, index) => (
@@ -508,8 +508,8 @@ const Home = () => {
           </section>
 
           {/* Publications */}
-          <section id="publications" className="py-20">
-            <div className="border-t border-gray-100 pt-20">
+          <section id="publications" className="py-12">
+            <div className="border-t border-gray-100 pt-12">
               <h2 className="text-3xl font-bold text-[#0F172A] mb-12">Publications</h2>
               <div className="space-y-6">
                 {publications.map((pub, index) => (
@@ -539,8 +539,8 @@ const Home = () => {
           </section>
 
           {/* Certifications */}
-          <section id="certifications" className="py-20">
-            <div className="border-t border-gray-100 pt-20">
+          <section id="certifications" className="py-12">
+            <div className="border-t border-gray-100 pt-12">
               <h2 className="text-3xl font-bold text-[#0F172A] mb-12">Certifications</h2>
               <div className="grid md:grid-cols-3 gap-4">
                 {certifications.map((cert, index) => (
@@ -564,8 +564,8 @@ const Home = () => {
           </section>
 
           {/* Skills */}
-          <section id="skills" className="py-20">
-            <div className="border-t border-gray-100 pt-20">
+          <section id="skills" className="py-12">
+            <div className="border-t border-gray-100 pt-12">
               <h2 className="text-3xl font-bold text-[#0F172A] mb-12">Technical Skills</h2>
               <div className="p-6 rounded-xl border border-gray-100 bg-gray-50/50">
                 <div className="flex flex-wrap gap-2 mb-8">
@@ -613,8 +613,8 @@ const Home = () => {
           </section>
 
           {/* Education */}
-          <section id="education" className="py-20">
-            <div className="border-t border-gray-100 pt-20">
+          <section id="education" className="py-12">
+            <div className="border-t border-gray-100 pt-12">
               <h2 className="text-3xl font-bold text-[#0F172A] mb-12">Education</h2>
               <div className="space-y-6">
                 {education.map((edu, index) => (
@@ -643,8 +643,8 @@ const Home = () => {
           </section>
 
           {/* Contact */}
-          <section id="contact" className="py-20">
-            <div className="border-t border-gray-100 pt-20">
+          <section id="contact" className="py-12">
+            <div className="border-t border-gray-100 pt-12">
               <h2 className="text-3xl font-bold text-[#0F172A] mb-4">Get In Touch</h2>
               <p className="text-xl text-[#2563EB] font-medium mb-12">
                 Let's build intelligent systems that scale.
