@@ -264,7 +264,7 @@ const Home = () => {
       venue: 'IEEE Conference',
       year: '2024',
       summary: 'Novel recommendation system using collaborative filtering for personalized grocery e-commerce.',
-      url: null
+      url: 'https://customer-assets.emergentagent.com/job_1545e344-117d-46c3-ba93-cf345fe031fc/artifacts/meuly63w_Certificate%20for%20paper%20publishing.pdf'
     }
   ];
 
