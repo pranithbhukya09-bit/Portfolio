@@ -491,16 +491,24 @@ const Home = () => {
             <h2 className="text-3xl font-bold text-gray-900 mb-10">Certifications</h2>
             <div className="grid md:grid-cols-2 gap-4">
               {certifications.map((cert, index) => (
-                <Card key={index} className="border-gray-200">
+                <Card key={index} className="border-gray-200 hover:shadow-md transition-shadow">
                   <CardHeader>
                     <CardTitle className="text-base text-gray-900">{cert.title}</CardTitle>
                     <CardDescription>
                       {cert.issuer} {cert.date && `· ${cert.date}`}
                     </CardDescription>
                   </CardHeader>
-                  {cert.image && (
+                  {cert.url && (
                     <CardContent>
-                      <img src={cert.image} alt={cert.title} className="rounded border border-gray-200 w-full" />
+                      <a 
+                        href={cert.url} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                        View Certificate
+                      </a>
                     </CardContent>
                   )}
                 </Card>
