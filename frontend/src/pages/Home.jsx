@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, Linkedin, Github, ExternalLink, Code, Database, Cloud, Award, Briefcase, GraduationCap, MapPin, BookOpen, FileText, Calendar, Phone, Download } from 'lucide-react';
+import { Mail, Linkedin, Github, ExternalLink, Code, Database, Cloud, Award, Briefcase, GraduationCap, MapPin, BookOpen, FileText, Calendar, Phone, Download, ChevronRight } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 
@@ -29,42 +29,42 @@ const Home = () => {
   }, []);
 
   const skillIcons = {
-    'Python': { icon: '🐍', bg: 'bg-blue-50' },
-    'Java': { icon: '☕', bg: 'bg-blue-50' },
-    'JavaScript': { icon: '⚡', bg: 'bg-blue-50' },
-    'Swift': { icon: '🔶', bg: 'bg-blue-50' },
-    'SQL': { icon: '📊', bg: 'bg-blue-50' },
-    'React': { icon: '⚛️', bg: 'bg-blue-50' },
-    'Node.js': { icon: '🟢', bg: 'bg-blue-50' },
-    'NumPy': { icon: '🔢', bg: 'bg-blue-50' },
-    'Pandas': { icon: '🐼', bg: 'bg-blue-50' },
-    'LangChain': { icon: '🔗', bg: 'bg-blue-50' },
-    'Streamlit': { icon: '🎯', bg: 'bg-blue-50' },
-    'AWS': { icon: '☁️', bg: 'bg-blue-50' },
-    'Bedrock': { icon: '🧱', bg: 'bg-blue-50' },
-    'Lambda': { icon: '⚡', bg: 'bg-blue-50' },
-    'DynamoDB': { icon: '💾', bg: 'bg-blue-50' },
-    'EC2': { icon: '🖥️', bg: 'bg-blue-50' },
-    'S3': { icon: '🪣', bg: 'bg-blue-50' },
-    'MySQL': { icon: '🐬', bg: 'bg-blue-50' },
-    'MongoDB': { icon: '🍃', bg: 'bg-blue-50' },
-    'PostgreSQL': { icon: '🐘', bg: 'bg-blue-50' },
-    'Agile': { icon: '🔄', bg: 'bg-blue-50' },
-    'Scrum': { icon: '🏉', bg: 'bg-blue-50' },
-    'Git': { icon: '📦', bg: 'bg-blue-50' },
-    'Unit Testing': { icon: '✅', bg: 'bg-blue-50' },
-    'CI/CD': { icon: '🔁', bg: 'bg-blue-50' },
-    'REST APIs': { icon: '🌐', bg: 'bg-blue-50' }
+    'Python': { icon: '🐍', bg: 'bg-slate-50' },
+    'Java': { icon: '☕', bg: 'bg-slate-50' },
+    'JavaScript': { icon: '⚡', bg: 'bg-slate-50' },
+    'Swift': { icon: '🔶', bg: 'bg-slate-50' },
+    'SQL': { icon: '📊', bg: 'bg-slate-50' },
+    'React': { icon: '⚛️', bg: 'bg-slate-50' },
+    'Node.js': { icon: '🟢', bg: 'bg-slate-50' },
+    'NumPy': { icon: '🔢', bg: 'bg-slate-50' },
+    'Pandas': { icon: '🐼', bg: 'bg-slate-50' },
+    'LangChain': { icon: '🔗', bg: 'bg-slate-50' },
+    'Streamlit': { icon: '🎯', bg: 'bg-slate-50' },
+    'AWS': { icon: '☁️', bg: 'bg-slate-50' },
+    'Bedrock': { icon: '🧱', bg: 'bg-slate-50' },
+    'Lambda': { icon: '⚡', bg: 'bg-slate-50' },
+    'DynamoDB': { icon: '💾', bg: 'bg-slate-50' },
+    'EC2': { icon: '🖥️', bg: 'bg-slate-50' },
+    'S3': { icon: '🪣', bg: 'bg-slate-50' },
+    'MySQL': { icon: '🐬', bg: 'bg-slate-50' },
+    'MongoDB': { icon: '🍃', bg: 'bg-slate-50' },
+    'PostgreSQL': { icon: '🐘', bg: 'bg-slate-50' },
+    'Agile': { icon: '🔄', bg: 'bg-slate-50' },
+    'Scrum': { icon: '🏉', bg: 'bg-slate-50' },
+    'Git': { icon: '📦', bg: 'bg-slate-50' },
+    'Unit Testing': { icon: '✅', bg: 'bg-slate-50' },
+    'CI/CD': { icon: '🔁', bg: 'bg-slate-50' },
+    'REST APIs': { icon: '🌐', bg: 'bg-slate-50' }
   };
 
   const skillCategories = {
     programming: {
-      title: 'Programming Languages',
+      title: 'Programming',
       icon: Code,
       skills: ['Python', 'Java', 'JavaScript', 'Swift', 'SQL']
     },
     frameworks: {
-      title: 'Frameworks & Libraries',
+      title: 'Frameworks',
       icon: Database,
       skills: ['React', 'Node.js', 'NumPy', 'Pandas', 'LangChain', 'Streamlit']
     },
@@ -79,7 +79,7 @@ const Home = () => {
       skills: ['MySQL', 'DynamoDB', 'SQL', 'MongoDB', 'PostgreSQL']
     },
     tools: {
-      title: 'Tools & Methodologies',
+      title: 'Tools',
       icon: Award,
       skills: ['Agile', 'Scrum', 'Git', 'Unit Testing', 'CI/CD', 'REST APIs']
     }
@@ -90,134 +90,118 @@ const Home = () => {
       title: 'Graduate Teaching Assistant',
       company: 'University of Houston Clear Lake',
       location: 'Houston, TX',
-      period: 'August 2024 - Present',
+      period: 'Aug 2024 - Present',
       current: true,
       featured: true,
       description: [
-        'Assisted professors in delivering undergraduate and graduate-level courses in Computer Science',
-        'Supported students with programming, data analysis, and core computer science concepts including AI, Software Engineering, and Data Modeling',
-        'Guided students through Python, Java, SQL, and data structures assignments with hands-on mentorship',
-        'Improved students understanding of problem-solving, analytical thinking, and software development best practices',
-        'Conducted office hours and grading for 50+ students across multiple courses'
+        'Delivered undergraduate & graduate CS courses (AI, Software Engineering, Data Modeling)',
+        'Mentored students in Python, Java, SQL, and data structures',
+        'Conducted office hours and grading for 50+ students'
       ]
     },
     {
       title: 'Data Analyst Intern',
       company: 'Wynswell Global',
       location: 'Bengaluru, India',
-      period: 'March 2024 - May 2024',
-      duration: '3 mos',
+      period: 'Mar 2024 - May 2024',
       current: false,
       featured: true,
       description: [
-        'Analyzed and processed large datasets using Python (Pandas, NumPy) to uncover business trends and patterns',
-        'Built interactive dashboards and visualizations using Streamlit to present insights to stakeholders',
-        'Wrote optimized SQL queries for relational and NoSQL databases, improving query performance by 40%',
-        'Collaborated with cross-functional teams to translate business requirements into technical solutions',
-        'Conducted data quality assessments and implemented automated data cleaning pipelines'
+        'Analyzed large datasets using Python (Pandas, NumPy) to uncover business trends',
+        'Built interactive Streamlit dashboards for stakeholder insights',
+        'Optimized SQL queries, improving performance by 40%'
       ]
     },
     {
       title: 'President',
-      company: 'Indian Student Association - University of Houston Clear Lake',
+      company: 'Indian Student Association - UHCL',
       location: 'Houston, TX',
       period: 'Jan 2026 - Present',
-      duration: '2 mos',
       current: true,
       featured: false,
       description: [
-        'Lead strategic planning and organizational development initiatives',
-        'Oversee operations and coordinate events to enhance member engagement',
-        'Guide team collaboration to achieve organizational goals'
-      ],
-      skills: ['Leadership', 'Event Planning', 'Team Management']
+        'Lead strategic planning and organizational development',
+        'Coordinate events to enhance member engagement'
+      ]
     },
     {
       title: 'Vice President',
-      company: 'Indian Student Association - University of Houston Clear Lake',
+      company: 'Indian Student Association - UHCL',
       location: 'Houston, TX',
       period: 'May 2025 - Dec 2025',
-      duration: '8 mos',
       current: false,
       featured: false,
       description: [
         'Supported organizational leadership and strategic initiatives',
-        'Coordinated student engagement activities and community events'
-      ],
-      skills: ['Leadership', 'Communication']
+        'Coordinated student engagement activities'
+      ]
     }
   ];
 
   const projects = [
     {
       title: 'AI-Based Content Summarization System',
-      description: 'Built an AI-powered desktop application using Python, GPT-4, and LangChain to generate concise summaries from long-form text. The system leverages advanced natural language processing techniques to extract key information while maintaining context and coherence.',
-      technologies: ['Python', 'GPT-4', 'LangChain', 'OpenAI API', 'Prompt Engineering'],
+      tech: ['Python', 'GPT-4', 'LangChain', 'OpenAI API'],
       highlights: [
-        'Designed structured prompt engineering strategies for optimal summary generation',
-        'Integrated GPT-4 via OpenAI API with comprehensive error handling and rate limiting',
-        'Applied ROUGE benchmarking methodology for quality assessment',
-        'Impact: Reduced document review time by 75% for end users'
+        'Desktop app generating concise summaries from long-form text',
+        'Structured prompt engineering for optimal output',
+        'ROUGE benchmarking for quality assessment',
+        'Reduced document review time by 75%'
       ],
       period: '2024'
     },
     {
-      title: 'Training and Placement Management System',
-      description: 'Designed and implemented a production-grade relational database using PostgreSQL with advanced SQL features. This comprehensive system streamlines the entire placement process from student registration to job offers.',
-      technologies: ['PostgreSQL', 'SQL', 'PL/pgSQL', 'Database Design', 'ER Modeling'],
+      title: 'Training & Placement Management System',
+      tech: ['PostgreSQL', 'SQL', 'PL/pgSQL', 'ER Modeling'],
       highlights: [
-        'Complete ER modeling and normalized schema design following 3NF principles',
-        'Index optimization achieving 60% improvement in query performance',
-        'PL/pgSQL stored functions for intelligent job-candidate matching algorithms',
-        'Impact: Automated placement workflows reducing manual processing by 80%'
+        'Production-grade relational database for placement workflows',
+        'Normalized schema design following 3NF principles',
+        '60% query performance improvement via index optimization',
+        'Automated workflows reducing manual processing by 80%'
       ],
       period: '2023 - 2024'
     },
     {
       title: 'Ethical Implications of Big Data Analytics',
-      description: 'Conducted comprehensive research analyzing ethical risks in Big Data analytics across major platforms including Meta, TikTok, and X (Twitter). Developed frameworks for responsible AI governance and algorithmic accountability.',
-      technologies: ['Research', 'Data Ethics', 'AI Governance', 'Policy Analysis'],
+      tech: ['Research', 'Data Ethics', 'AI Governance'],
       highlights: [
-        'Developed a 4-parameter evaluation model for ethical assessment',
-        'Proposed novel Algorithmic Transparency Index for platform accountability',
-        'Cross-cultural regulatory comparison across US, EU, and Asian markets',
-        'Impact: Contributed to AI accountability framework discussions'
+        'Analyzed ethical risks across Meta, TikTok, and X platforms',
+        '4-parameter evaluation model for ethical assessment',
+        'Proposed Algorithmic Transparency Index',
+        'Cross-cultural regulatory comparison (US, EU, Asia)'
       ],
       period: '2024'
     },
     {
       title: 'Student Analytics Platform',
-      description: 'Full-stack web platform built using React, Node.js, Python, SQL, and AWS. The system provides comprehensive analytics for student performance tracking, course management, and institutional reporting.',
-      technologies: ['React', 'Node.js', 'Python', 'AWS', 'SQL'],
+      tech: ['React', 'Node.js', 'Python', 'AWS'],
       highlights: [
-        'Built scalable REST APIs handling 1000+ concurrent requests',
-        'Backend analytics pipeline using Pandas for real-time data processing',
-        'AWS deployment with auto-scaling and load balancing',
-        'Impact: Streamlined administrative workflows for 500+ users'
+        'Full-stack platform for student performance tracking',
+        'REST APIs handling 1000+ concurrent requests',
+        'Real-time analytics with Pandas',
+        'AWS deployment with auto-scaling'
       ],
       period: '2023 - 2024'
     },
     {
       title: 'Data Analytics Pipeline',
-      description: 'End-to-end data workflow solution handling collection, transformation, analysis, and visualization. Built robust ETL processes with automated quality checks and interactive dashboards.',
-      technologies: ['Python', 'SQL', 'Pandas', 'ETL', 'Data Visualization'],
+      tech: ['Python', 'SQL', 'Pandas', 'ETL'],
       highlights: [
-        'Automated quality checks with 99.5% data integrity assurance',
-        'Statistical analysis modules for trend detection and anomaly identification',
-        'Interactive dashboards for business intelligence reporting',
-        'Impact: 60% faster data processing compared to legacy systems'
+        'End-to-end data workflow (collection → visualization)',
+        'Automated quality checks with 99.5% data integrity',
+        'Statistical analysis for trend detection',
+        '60% faster processing vs legacy systems'
       ],
       period: '2024'
     },
     {
       title: 'Algorithmic Trading Simulator',
-      description: 'Comprehensive backtesting platform for developing and testing quantitative trading strategies. Features risk management, portfolio optimization, and detailed performance analytics.',
-      technologies: ['Python', 'Pandas', 'Financial Modeling', 'NumPy', 'Statistics'],
+      tech: ['Python', 'Pandas', 'NumPy', 'Financial Modeling'],
       highlights: [
-        'Multiple trading algorithm implementations including momentum and mean reversion',
+        'Backtesting platform for trading strategies',
+        'Momentum & mean reversion algorithms',
         'Portfolio optimization using Modern Portfolio Theory',
-        'Comprehensive performance analytics with Sharpe ratio and drawdown metrics',
-        'Impact: Enabled risk-free strategy testing saving potential losses'
+        'Sharpe ratio and drawdown performance metrics'
       ],
       period: '2022 - 2023'
     }
@@ -225,7 +209,7 @@ const Home = () => {
 
   const education = [
     {
-      degree: 'Master of Science in Computer Science',
+      degree: 'M.S. Computer Science',
       institution: 'University of Houston Clear Lake',
       location: 'Houston, TX',
       period: 'Expected May 2026',
@@ -234,7 +218,7 @@ const Home = () => {
       coursework: ['Algorithms', 'Software Engineering', 'Database Systems', 'Mobile Development']
     },
     {
-      degree: 'Bachelor of Computer Science',
+      degree: 'B.S. Computer Science',
       institution: 'New Horizon College of Engineering',
       location: 'Bengaluru, India',
       period: '2020 - 2024',
@@ -259,7 +243,7 @@ const Home = () => {
 
   const certifications = [
     {
-      title: 'Databricks Accredited Generative AI Fundamentals',
+      title: 'Databricks Generative AI Fundamentals',
       issuer: 'Databricks Academy',
       date: 'Feb 2026',
       link: 'https://customer-assets.emergentagent.com/job_career-analyzer-8/artifacts/q4rkrdqh_Screenshot%202026-02-15%20at%204.12.43%E2%80%AFPM.png'
@@ -291,7 +275,7 @@ const Home = () => {
     {
       title: 'Operating Systems Short Course',
       issuer: 'Singapore Global IT Academy',
-      date: 'December 2022',
+      date: 'Dec 2022',
       link: 'https://customer-assets.emergentagent.com/job_career-analyzer-8/artifacts/q08uua7t_WhatsApp%20Image%202026-02-15%20at%204.33.17%20PM.jpeg'
     }
   ];
@@ -304,21 +288,23 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#fafafa]">
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className={`fixed top-0 w-full z-50 transition-all ${
-        scrollY > 50 ? 'bg-white/95 backdrop-blur-sm shadow-sm' : 'bg-white'
-      } border-b border-gray-200`}>
-        <div className="max-w-5xl mx-auto px-6 py-4">
+      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        scrollY > 50 ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-white'
+      } border-b border-slate-100`}>
+        <div className="max-w-6xl mx-auto px-8 py-5">
           <div className="flex justify-between items-center">
-            <div className="text-xl font-bold text-gray-900">Pranith Bhukya</div>
-            <div className="hidden md:flex gap-6">
+            <div className="text-xl font-semibold text-slate-900 tracking-tight">Pranith Bhukya</div>
+            <div className="hidden md:flex gap-8">
               {['About', 'Projects', 'Experience', 'Publications', 'Certifications', 'Skills', 'Contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
-                  className={`text-sm font-medium hover-underline ${
-                    activeSection === item.toLowerCase() ? 'text-blue-600' : 'text-gray-600 hover:text-gray-900'
+                  className={`text-sm font-medium transition-colors ${
+                    activeSection === item.toLowerCase() 
+                      ? 'text-slate-900' 
+                      : 'text-slate-500 hover:text-slate-700'
                   }`}
                 >
                   {item}
@@ -330,28 +316,38 @@ const Home = () => {
       </nav>
 
       {/* Hero */}
-      <section className="pt-36 pb-24 px-6 bg-gradient-to-b from-white to-gray-50">
-        <div className="max-w-5xl mx-auto">
+      <section className="pt-40 pb-28 px-8">
+        <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row gap-16 items-center">
             <img 
               src="https://customer-assets.emergentagent.com/job_career-analyzer-8/artifacts/3jlewvd3_efe62cd4-6ee9-4106-a55a-34a2c979de14.jpeg"
               alt="Pranith Bhukya" 
-              className="w-72 h-72 object-cover rounded-3xl shadow-xl border border-gray-200"
+              className="w-64 h-64 object-cover rounded-2xl shadow-lg"
               style={{ objectPosition: 'center 20%' }}
             />
             <div className="flex-1">
-              <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-4 leading-tight">Software Engineer</h1>
-              <p className="text-xl lg:text-2xl text-gray-600 mb-8 leading-relaxed">
-                AI & Data Systems Engineer • Published Researcher • Student Leader
+              <h1 className="text-5xl lg:text-6xl font-bold text-slate-900 mb-5 tracking-tight">
+                Software Engineer
+              </h1>
+              <p className="text-xl text-slate-500 mb-10 font-medium">
+                AI & Data Systems • Published Researcher • Student Leader
               </p>
-              <div className="flex flex-wrap gap-6 text-base">
-                <a href="mailto:pranithbhukya09@gmail.com" className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors">
-                  <Mail className="w-5 h-5" />
-                  <span className="font-medium">Email</span>
+              <div className="flex flex-wrap gap-5">
+                <a 
+                  href="mailto:pranithbhukya09@gmail.com" 
+                  className="flex items-center gap-2 px-5 py-2.5 bg-slate-900 text-white rounded-lg hover:bg-slate-800 transition-colors text-sm font-medium"
+                >
+                  <Mail className="w-4 h-4" />
+                  Email
                 </a>
-                <a href="https://www.linkedin.com/in/pranith-bhukya/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors">
-                  <Linkedin className="w-5 h-5" />
-                  <span className="font-medium">LinkedIn</span>
+                <a 
+                  href="https://www.linkedin.com/in/pranith-bhukya/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-center gap-2 px-5 py-2.5 border border-slate-200 text-slate-700 rounded-lg hover:bg-slate-50 transition-colors text-sm font-medium"
+                >
+                  <Linkedin className="w-4 h-4" />
+                  LinkedIn
                 </a>
                 <button 
                   onClick={() => {
@@ -362,10 +358,10 @@ const Home = () => {
                     link.click();
                     document.body.removeChild(link);
                   }}
-                  className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors"
+                  className="flex items-center gap-2 px-5 py-2.5 border border-slate-200 text-slate-700 rounded-lg hover:bg-slate-50 transition-colors text-sm font-medium"
                 >
-                  <Download className="w-5 h-5" />
-                  <span className="font-medium">Resume</span>
+                  <Download className="w-4 h-4" />
+                  Resume
                 </button>
               </div>
             </div>
@@ -374,275 +370,260 @@ const Home = () => {
       </section>
 
       {/* Main Content */}
-      <main className="pb-20">
-        <div className="max-w-5xl mx-auto px-6">
+      <main className="pb-24">
+        <div className="max-w-6xl mx-auto px-8">
           
           {/* About */}
-          <section id="about" className="py-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">About</h2>
-            <p className="text-gray-700 leading-relaxed text-lg">
-              Software Engineer and AI & Data Systems Engineer with hands-on experience building Generative AI applications, 
-              scalable backend systems, and production-grade databases. Published researcher with expertise in AI governance, 
-              database architecture, and data analytics. Currently serving as President of the Indian Student Association at 
-              the University of Houston Clear Lake, leading strategic initiatives and community engagement while pursuing a 
-              Master's in Computer Science. Passionate about responsible AI development, system design, and solving complex 
-              technical problems through innovative solutions. Experienced in full-stack development with React, Node.js, Python, 
-              and AWS, with a strong foundation in data analysis using SQL, Pandas, and NumPy. Actively seeking full-time 
-              opportunities where I can leverage my technical skills and leadership experience to contribute to impactful projects.
-            </p>
+          <section id="about" className="py-20 border-t border-slate-100">
+            <h2 className="text-2xl font-semibold text-slate-900 mb-8">About</h2>
+            <div className="space-y-4 text-slate-600 leading-relaxed">
+              <p>
+                Software Engineer specializing in <span className="text-slate-900 font-medium">AI & Data Systems</span>, building scalable backend architectures, Generative AI applications, and production-grade databases.
+              </p>
+              <ul className="space-y-3 ml-1">
+                <li className="flex items-start gap-3">
+                  <ChevronRight className="w-4 h-4 text-slate-400 mt-1 flex-shrink-0" />
+                  <span>Published researcher with expertise in AI governance, system design, and data analytics</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <ChevronRight className="w-4 h-4 text-slate-400 mt-1 flex-shrink-0" />
+                  <span>Full-stack development using React, Node.js, Python, and AWS</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <ChevronRight className="w-4 h-4 text-slate-400 mt-1 flex-shrink-0" />
+                  <span>Strong analytical foundations in SQL and data engineering</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <ChevronRight className="w-4 h-4 text-slate-400 mt-1 flex-shrink-0" />
+                  <span>Currently pursuing M.S. in Computer Science & serving as President of ISA at UHCL</span>
+                </li>
+              </ul>
+              <p className="pt-2 text-slate-500 italic">
+                Passionate about responsible AI, scalable systems, and solving complex technical challenges through innovative engineering.
+              </p>
+            </div>
           </section>
 
           {/* Projects */}
-          <section id="projects" className="py-16 border-t border-gray-200">
-            <h2 className="text-3xl font-bold text-gray-900 mb-10">Projects</h2>
-            <div className="space-y-8">
+          <section id="projects" className="py-20 border-t border-slate-100">
+            <h2 className="text-2xl font-semibold text-slate-900 mb-10">Projects</h2>
+            <div className="grid md:grid-cols-2 gap-6">
               {projects.map((project, index) => (
-                <Card key={index} className="bg-white border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300">
-                  <CardHeader className="pb-4">
-                    <div className="flex justify-between items-start gap-4 flex-wrap">
-                      <CardTitle className="text-xl text-gray-900">{project.title}</CardTitle>
-                      <Badge className="bg-blue-100 text-blue-700 border-blue-200 text-xs font-medium">{project.period}</Badge>
-                    </div>
-                    <CardDescription className="text-gray-600 text-base leading-relaxed mt-2">{project.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech) => (
-                        <Badge key={tech} className="bg-gray-100 text-gray-700 border-gray-200 text-xs font-medium">{tech}</Badge>
-                      ))}
-                    </div>
-                    <ul className="space-y-2">
-                      {project.highlights.map((h, i) => (
-                        <li key={i} className="text-gray-600 text-sm flex items-start gap-3">
-                          <span className="text-blue-600 mt-0.5">•</span>
-                          <span>{h}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
+                <div 
+                  key={index} 
+                  className="p-6 rounded-xl border border-slate-100 hover:border-slate-200 hover:shadow-sm transition-all bg-slate-50/50"
+                >
+                  <div className="flex justify-between items-start gap-3 mb-4">
+                    <h3 className="text-lg font-semibold text-slate-900 leading-tight">{project.title}</h3>
+                    <span className="text-xs text-slate-400 font-medium whitespace-nowrap">{project.period}</span>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {project.tech.map((t) => (
+                      <span key={t} className="px-2 py-1 text-xs font-medium text-slate-600 bg-white rounded border border-slate-200">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  <ul className="space-y-2">
+                    {project.highlights.map((h, i) => (
+                      <li key={i} className="text-sm text-slate-600 flex items-start gap-2">
+                        <span className="text-slate-300 mt-0.5">•</span>
+                        <span>{h}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               ))}
             </div>
           </section>
 
           {/* Experience */}
-          <section id="experience" className="py-16 border-t border-gray-200">
-            <h2 className="text-3xl font-bold text-gray-900 mb-10">Experience</h2>
+          <section id="experience" className="py-20 border-t border-slate-100">
+            <h2 className="text-2xl font-semibold text-slate-900 mb-10">Experience</h2>
             <div className="space-y-10">
               {experiences.map((exp, index) => (
-                <div key={index} className={`relative pl-6 border-l-2 ${
-                  exp.featured ? 'border-blue-500' : 'border-gray-300'
-                }`}>
-                  <div className={`absolute -left-2 top-0 w-4 h-4 rounded-full border-2 ${
-                    exp.featured ? 'bg-blue-500 border-blue-400' : 'bg-gray-400 border-gray-300'
+                <div key={index} className="relative pl-8 border-l-2 border-slate-200">
+                  <div className={`absolute -left-[9px] top-0 w-4 h-4 rounded-full border-2 bg-white ${
+                    exp.featured ? 'border-slate-900' : 'border-slate-300'
                   }`}></div>
-                  <h3 className={`text-xl font-bold ${
-                    exp.featured ? 'text-blue-600' : 'text-gray-900'
-                  }`}>{exp.title}</h3>
-                  <p className="text-blue-600 font-medium">{exp.company}</p>
-                  <div className="flex items-center gap-3 text-sm text-gray-500 mt-1 flex-wrap">
-                    <span>{exp.location}</span>
-                    <span>•</span>
-                    <span>{exp.period}</span>
-                    {exp.current && <Badge className="bg-green-100 text-green-700 border-green-200 text-xs">Current</Badge>}
+                  <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-2">
+                    <h3 className="text-lg font-semibold text-slate-900">{exp.title}</h3>
+                    {exp.current && (
+                      <span className="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">Current</span>
+                    )}
                   </div>
-                  <ul className="space-y-1.5 mt-3">
+                  <p className="text-slate-600 font-medium mb-1">{exp.company}</p>
+                  <p className="text-sm text-slate-400 mb-4">{exp.location} · {exp.period}</p>
+                  <ul className="space-y-2">
                     {exp.description.map((item, i) => (
-                      <li key={i} className="text-gray-600 flex items-start gap-2">
-                        <span className="text-blue-600 mt-1">•</span>
+                      <li key={i} className="text-sm text-slate-600 flex items-start gap-2">
+                        <span className="text-slate-300 mt-0.5">•</span>
                         <span>{item}</span>
                       </li>
                     ))}
                   </ul>
-                  {exp.skills && (
-                    <div className="flex flex-wrap gap-2 mt-3">
-                      {exp.skills.map((skill) => (
-                        <Badge key={skill} className="bg-gray-100 text-gray-600 border-gray-200 text-xs">{skill}</Badge>
-                      ))}
-                    </div>
-                  )}
                 </div>
               ))}
             </div>
           </section>
 
           {/* Publications */}
-          <section id="publications" className="py-16 border-t border-gray-200">
-            <h2 className="text-3xl font-bold text-gray-900 mb-10">Publications</h2>
+          <section id="publications" className="py-20 border-t border-slate-100">
+            <h2 className="text-2xl font-semibold text-slate-900 mb-10">Publications</h2>
             <div className="space-y-4">
               {publications.map((pub, index) => (
-                <Card key={index} className="bg-white border-gray-200">
-                  <CardHeader>
-                    <div className="flex justify-between items-start gap-4">
-                      <div>
-                        <CardTitle className="text-lg text-gray-900">{pub.title}</CardTitle>
-                        <p className="text-blue-600 mt-1">{pub.venue} · {pub.year}</p>
-                      </div>
-                      {pub.url && (
-                        <a href={pub.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700">
-                          <ExternalLink className="w-5 h-5" />
-                        </a>
-                      )}
-                    </div>
-                  </CardHeader>
-                </Card>
+                <div key={index} className="p-5 rounded-xl border border-slate-100 bg-slate-50/50 flex justify-between items-start gap-4">
+                  <div>
+                    <h3 className="font-medium text-slate-900 mb-1">{pub.title}</h3>
+                    <p className="text-sm text-slate-500">{pub.venue} · {pub.year}</p>
+                  </div>
+                  {pub.url && (
+                    <a 
+                      href={pub.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="text-slate-400 hover:text-slate-600 transition-colors flex-shrink-0"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  )}
+                </div>
               ))}
             </div>
           </section>
 
           {/* Certifications */}
-          <section id="certifications" className="py-16 border-t border-gray-200">
-            <h2 className="text-3xl font-bold text-gray-900 mb-10">Certifications</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <section id="certifications" className="py-20 border-t border-slate-100">
+            <h2 className="text-2xl font-semibold text-slate-900 mb-10">Certifications</h2>
+            <div className="grid md:grid-cols-3 gap-4">
               {certifications.map((cert, index) => (
                 <a 
                   key={index}
                   href={cert.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block"
+                  className="group p-5 rounded-xl border border-slate-100 bg-slate-50/50 hover:border-slate-200 hover:bg-white transition-all"
                 >
-                  <Card className="bg-white border-gray-200 hover:border-blue-400 hover:shadow-md transition-all duration-300 h-full cursor-pointer group">
-                    <CardHeader className="pb-2">
-                      <div className="flex items-start justify-between gap-2">
-                        <Award className="w-8 h-8 text-blue-600 flex-shrink-0" />
-                        <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" />
-                      </div>
-                      <CardTitle className="text-base text-gray-900 group-hover:text-blue-600 transition-colors mt-3">{cert.title}</CardTitle>
-                      <CardDescription className="text-gray-500 text-sm">
-                        {cert.issuer} {cert.date && `· ${cert.date}`}
-                      </CardDescription>
-                    </CardHeader>
-                  </Card>
+                  <div className="flex items-start justify-between gap-2 mb-3">
+                    <Award className="w-5 h-5 text-slate-400 group-hover:text-slate-600 transition-colors" />
+                    <ExternalLink className="w-3.5 h-3.5 text-slate-300 group-hover:text-slate-500 transition-colors" />
+                  </div>
+                  <h3 className="font-medium text-slate-900 text-sm mb-1 group-hover:text-slate-700">{cert.title}</h3>
+                  <p className="text-xs text-slate-400">{cert.issuer} · {cert.date}</p>
                 </a>
               ))}
             </div>
           </section>
 
           {/* Skills */}
-          <section id="skills" className="py-16 border-t border-gray-200">
-            <h2 className="text-3xl font-bold text-gray-900 mb-10">Technical Skills</h2>
-            <Card className="bg-white border-gray-200">
-              <CardContent className="p-6">
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {Object.keys(skillCategories).map((category) => {
-                    const Icon = skillCategories[category].icon;
-                    return (
-                      <button
-                        key={category}
-                        onClick={() => setActiveSkillTab(category)}
-                        className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                          activeSkillTab === category
-                            ? 'bg-blue-600 text-white shadow-md'
-                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-gray-800'
-                        }`}
-                      >
-                        <Icon className="w-4 h-4" />
-                        {skillCategories[category].title}
-                      </button>
-                    );
-                  })}
-                </div>
+          <section id="skills" className="py-20 border-t border-slate-100">
+            <h2 className="text-2xl font-semibold text-slate-900 mb-10">Technical Skills</h2>
+            <div className="p-6 rounded-xl border border-slate-100 bg-slate-50/50">
+              <div className="flex flex-wrap gap-2 mb-8">
+                {Object.keys(skillCategories).map((category) => {
+                  const Icon = skillCategories[category].icon;
+                  return (
+                    <button
+                      key={category}
+                      onClick={() => setActiveSkillTab(category)}
+                      className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                        activeSkillTab === category
+                          ? 'bg-slate-900 text-white'
+                          : 'bg-white text-slate-500 hover:text-slate-700 border border-slate-200'
+                      }`}
+                    >
+                      <Icon className="w-4 h-4" />
+                      {skillCategories[category].title}
+                    </button>
+                  );
+                })}
+              </div>
 
-                <div>
-                  {Object.keys(skillCategories).map((category) => (
-                    <div key={category} className={activeSkillTab === category ? 'block' : 'hidden'}>
-                      <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
-                        {skillCategories[category].skills.map((skill) => {
-                          const skillData = skillIcons[skill] || { icon: '💻', bg: 'bg-blue-50' };
-                          return (
-                            <div key={skill} className={`${skillData.bg} border border-gray-200 rounded-lg p-3 text-center hover:border-blue-400 hover:shadow-md transition-all`}>
-                              <div className="text-2xl mb-1">{skillData.icon}</div>
-                              <div className="text-gray-800 text-xs font-medium">{skill}</div>
-                            </div>
-                          );
-                        })}
-                      </div>
+              <div>
+                {Object.keys(skillCategories).map((category) => (
+                  <div key={category} className={activeSkillTab === category ? 'block' : 'hidden'}>
+                    <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-3">
+                      {skillCategories[category].skills.map((skill) => {
+                        const skillData = skillIcons[skill] || { icon: '💻', bg: 'bg-slate-50' };
+                        return (
+                          <div 
+                            key={skill} 
+                            className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-slate-300 hover:shadow-sm transition-all"
+                          >
+                            <div className="text-2xl mb-2">{skillData.icon}</div>
+                            <div className="text-slate-700 text-xs font-medium">{skill}</div>
+                          </div>
+                        );
+                      })}
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                  </div>
+                ))}
+              </div>
+            </div>
           </section>
 
           {/* Education */}
-          <section id="education" className="py-16 border-t border-gray-200">
-            <h2 className="text-3xl font-bold text-gray-900 mb-10">Education</h2>
-            <div className="space-y-4">
+          <section id="education" className="py-20 border-t border-slate-100">
+            <h2 className="text-2xl font-semibold text-slate-900 mb-10">Education</h2>
+            <div className="space-y-6">
               {education.map((edu, index) => (
-                <Card key={index} className="bg-white border-gray-200">
-                  <CardHeader>
-                    <div className="flex justify-between items-start gap-4 flex-wrap">
-                      <div>
-                        <CardTitle className="text-xl text-gray-900">{edu.degree}</CardTitle>
-                        <CardDescription className="text-blue-600 font-medium">{edu.institution}</CardDescription>
-                        <p className="text-gray-500 mt-1">{edu.location} · {edu.period} · GPA: {edu.gpa}</p>
-                      </div>
-                      {edu.current && <Badge className="bg-green-100 text-green-700 border-green-200 text-xs">In Progress</Badge>}
+                <div key={index} className="p-6 rounded-xl border border-slate-100 bg-slate-50/50">
+                  <div className="flex flex-wrap justify-between items-start gap-3 mb-3">
+                    <div>
+                      <h3 className="text-lg font-semibold text-slate-900">{edu.degree}</h3>
+                      <p className="text-slate-600">{edu.institution}</p>
                     </div>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex flex-wrap gap-2">
-                      {edu.coursework.map((course) => (
-                        <Badge key={course} className="bg-gray-100 text-gray-600 border-gray-200 text-xs">{course}</Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
+                    {edu.current && (
+                      <span className="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">In Progress</span>
+                    )}
+                  </div>
+                  <p className="text-sm text-slate-400 mb-4">{edu.location} · {edu.period} · GPA: {edu.gpa}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {edu.coursework.map((course) => (
+                      <span key={course} className="px-2.5 py-1 text-xs font-medium text-slate-500 bg-white rounded border border-slate-200">
+                        {course}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
           </section>
 
           {/* Contact */}
-          <section id="contact" className="py-16 border-t border-gray-200">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Get In Touch</h2>
-            <p className="text-gray-600 mb-8">
-              Open to discussing opportunities, projects, or collaborations.
-            </p>
-            <div className="grid md:grid-cols-2 gap-4">
-              <Card className="bg-white border-gray-200 hover:border-blue-300 transition-colors">
-                <CardContent className="p-5">
-                  <Mail className="w-6 h-6 text-blue-600 mb-2" />
-                  <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
-                  <a href="mailto:pranithbhukya09@gmail.com" className="text-blue-600 hover:text-blue-700 text-sm">
-                    pranithbhukya09@gmail.com
-                  </a>
-                </CardContent>
-              </Card>
-              <Card className="bg-white border-gray-200 hover:border-blue-300 transition-colors">
-                <CardContent className="p-5">
-                  <Phone className="w-6 h-6 text-blue-600 mb-2" />
-                  <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
-                  <a href="tel:+13464902475" className="text-blue-600 hover:text-blue-700 text-sm">
-                    +1 (346) 490-2475
-                  </a>
-                </CardContent>
-              </Card>
-              <Card className="bg-white border-gray-200 hover:border-blue-300 transition-colors">
-                <CardContent className="p-5">
-                  <Linkedin className="w-6 h-6 text-blue-600 mb-2" />
-                  <h3 className="font-semibold text-gray-900 mb-1">LinkedIn</h3>
-                  <a href="https://www.linkedin.com/in/pranith-bhukya/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 text-sm">
-                    linkedin.com/in/pranith-bhukya
-                  </a>
-                </CardContent>
-              </Card>
-              <Card className="bg-white border-gray-200 hover:border-blue-300 transition-colors">
-                <CardContent className="p-5">
-                  <MapPin className="w-6 h-6 text-blue-600 mb-2" />
-                  <h3 className="font-semibold text-gray-900 mb-1">Location</h3>
-                  <p className="text-gray-600 text-sm">Houston, TX</p>
-                </CardContent>
-              </Card>
+          <section id="contact" className="py-20 border-t border-slate-100">
+            <h2 className="text-2xl font-semibold text-slate-900 mb-4">Get In Touch</h2>
+            <p className="text-slate-500 mb-10">Open to discussing opportunities, projects, or collaborations.</p>
+            <div className="grid md:grid-cols-4 gap-4">
+              <a href="mailto:pranithbhukya09@gmail.com" className="p-5 rounded-xl border border-slate-100 bg-slate-50/50 hover:border-slate-200 hover:bg-white transition-all group">
+                <Mail className="w-5 h-5 text-slate-400 group-hover:text-slate-600 mb-3" />
+                <h3 className="font-medium text-slate-900 text-sm mb-1">Email</h3>
+                <p className="text-xs text-slate-500 truncate">pranithbhukya09@gmail.com</p>
+              </a>
+              <a href="tel:+13464902475" className="p-5 rounded-xl border border-slate-100 bg-slate-50/50 hover:border-slate-200 hover:bg-white transition-all group">
+                <Phone className="w-5 h-5 text-slate-400 group-hover:text-slate-600 mb-3" />
+                <h3 className="font-medium text-slate-900 text-sm mb-1">Phone</h3>
+                <p className="text-xs text-slate-500">+1 (346) 490-2475</p>
+              </a>
+              <a href="https://www.linkedin.com/in/pranith-bhukya/" target="_blank" rel="noopener noreferrer" className="p-5 rounded-xl border border-slate-100 bg-slate-50/50 hover:border-slate-200 hover:bg-white transition-all group">
+                <Linkedin className="w-5 h-5 text-slate-400 group-hover:text-slate-600 mb-3" />
+                <h3 className="font-medium text-slate-900 text-sm mb-1">LinkedIn</h3>
+                <p className="text-xs text-slate-500">pranith-bhukya</p>
+              </a>
+              <div className="p-5 rounded-xl border border-slate-100 bg-slate-50/50">
+                <MapPin className="w-5 h-5 text-slate-400 mb-3" />
+                <h3 className="font-medium text-slate-900 text-sm mb-1">Location</h3>
+                <p className="text-xs text-slate-500">Houston, TX</p>
+              </div>
             </div>
           </section>
         </div>
       </main>
 
       {/* Footer */}
-      <footer className="py-6 border-t border-gray-200 bg-white">
-        <div className="max-w-5xl mx-auto px-6 text-center text-gray-500 text-sm">
-          <p>&copy; 2025 Pranith Bhukya. All rights reserved.</p>
+      <footer className="py-8 border-t border-slate-100">
+        <div className="max-w-6xl mx-auto px-8 text-center text-slate-400 text-sm">
+          <p>© 2025 Pranith Bhukya</p>
         </div>
       </footer>
     </div>
