@@ -345,18 +345,27 @@ const Home = () => {
             <CardContent className="p-10">
               <div className="space-y-6 text-lg text-slate-300 leading-relaxed">
                 <p className="first-letter:text-5xl first-letter:font-bold first-letter:text-cyan-400 first-letter:mr-2 first-letter:float-left">
-                  I'm a passionate Software Engineer and Data Analyst with over 2 years of experience in building 
-                  data-driven solutions and scalable software systems. Currently pursuing my Master's in Computer Science 
-                  at the University of Houston Clear Lake while serving as a Graduate Teaching Assistant.
+                  I'm a Software Engineer and Data Analyst with 2+ years of hands-on experience designing and implementing 
+                  data-driven solutions that solve real-world business problems. Currently pursuing my Master's in Computer Science 
+                  at the University of Houston Clear Lake while serving as a Graduate Teaching Assistant, where I support courses 
+                  in Artificial Intelligence, Software Engineering, and Data Modeling.
                 </p>
                 <p>
-                  My expertise spans across full-stack development, data analytics, and cloud computing. I've successfully 
-                  delivered projects involving REST APIs, data visualization, and AWS deployments. I thrive in collaborative 
-                  environments and am driven by the challenge of turning complex problems into elegant solutions.
+                  My technical expertise spans the full development lifecycle—from data preprocessing and analytics using Python, 
+                  SQL, Pandas, and NumPy to building scalable full-stack applications with React, Node.js, and REST APIs. I've 
+                  successfully deployed production systems on AWS, leveraging services like Lambda, DynamoDB, and EC2 to deliver 
+                  high-performance backend solutions.
                 </p>
                 <p>
-                  I'm actively seeking full-time opportunities where I can leverage my technical skills and analytical 
-                  mindset to contribute to innovative projects and drive business value through technology.
+                  I excel at translating complex datasets into actionable insights and turning business requirements into robust 
+                  technical implementations. Whether it's optimizing SQL queries for NoSQL databases, building interactive dashboards 
+                  with Streamlit, or architecting cloud-native applications, I bring a problem-solving mindset focused on measurable 
+                  outcomes and scalable architecture.
+                </p>
+                <p>
+                  My work has been recognized through publications in international journals and conferences, including research on 
+                  IoT systems and machine learning-driven recommendation engines. I thrive in collaborative, agile environments and 
+                  am passionate about mentoring others—having guided 50+ students through complex programming and data structure challenges.
                 </p>
               </div>
             </CardContent>
