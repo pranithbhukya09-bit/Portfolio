@@ -255,26 +255,46 @@ const Home = () => {
       title: 'Databricks Accredited Generative AI Fundamentals',
       issuer: 'Databricks Academy',
       date: 'Feb 2026',
-      image: 'https://customer-assets.emergentagent.com/job_career-analyzer-8/artifacts/q4rkrdqh_Screenshot%202026-02-15%20at%204.12.43%E2%80%AFPM.png'
+      url: 'https://customer-assets.emergentagent.com/job_career-analyzer-8/artifacts/q4rkrdqh_Screenshot%202026-02-15%20at%204.12.43%E2%80%AFPM.png'
     },
     {
       title: 'UI/UX Design Level 1',
       issuer: 'HashJob',
       date: 'Mar 2024',
-      image: 'https://customer-assets.emergentagent.com/job_career-analyzer-8/artifacts/lr97j9ba_Certificate1709815108205.png'
+      url: 'https://customer-assets.emergentagent.com/job_career-analyzer-8/artifacts/lr97j9ba_Certificate1709815108205.png'
     },
     {
-      title: 'Journey to Cloud',
+      title: 'Journey to Cloud: Envisioning Your Solution',
       issuer: 'AWS',
-      date: 'Apr 2024'
+      date: 'Apr 2024',
+      url: 'https://customer-assets.emergentagent.com/job_career-analyzer-8/artifacts/12994r3e_Journey_to_Cloud__Envisioning_Your_Solution_Badge20240418-40-9stp0w.pdf'
     },
     {
-      title: 'Python Basic',
-      issuer: 'HackerRank'
+      title: 'Python Basic Certificate',
+      issuer: 'HackerRank',
+      url: 'https://customer-assets.emergentagent.com/job_career-analyzer-8/artifacts/l37s8r0z_python_basic%20certificate.pdf'
     },
     {
-      title: 'Research Publication',
-      issuer: 'IEEE/Journal'
+      title: 'Research Paper Publication Certificate',
+      issuer: 'IEEE/Journal',
+      url: 'https://customer-assets.emergentagent.com/job_career-analyzer-8/artifacts/ic859l39_Certificate%20for%20paper%20publishing.pdf'
+    },
+    {
+      title: 'Boosting Performance Through Caching Workshop',
+      issuer: 'Singapore Global IT Academy',
+      date: 'July 03, 2022',
+      url: 'https://customer-assets.emergentagent.com/job_career-analyzer-8/artifacts/f2aus4g9_WhatsApp%20Image%202026-02-15%20at%204.34.08%20PM.jpeg'
+    },
+    {
+      title: 'Operating Systems Short Course',
+      issuer: 'Singapore Global IT Academy',
+      date: 'December 17-18, 2022',
+      url: 'https://customer-assets.emergentagent.com/job_career-analyzer-8/artifacts/q08uua7t_WhatsApp%20Image%202026-02-15%20at%204.33.17%20PM.jpeg'
+    },
+    {
+      title: 'Neo Codeathon Certificate',
+      issuer: 'Neo',
+      url: 'https://customer-assets.emergentagent.com/job_career-analyzer-8/artifacts/fc0vdofi_Neo%20codeathon.pdf'
     }
   ];
 
