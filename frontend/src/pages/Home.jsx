@@ -332,28 +332,28 @@ const Home = () => {
       </nav>
 
       {/* Hero */}
-      <section className="pt-32 pb-16 px-6 bg-white">
+      <section className="pt-36 pb-24 px-6 bg-white">
         <div className="max-w-5xl mx-auto">
-          <div className="flex flex-col md:flex-row gap-10 items-center">
+          <div className="flex flex-col md:flex-row gap-16 items-center">
             <img 
               src="https://customer-assets.emergentagent.com/job_career-analyzer-8/artifacts/3jlewvd3_efe62cd4-6ee9-4106-a55a-34a2c979de14.jpeg"
               alt="Pranith Bhukya" 
-              className="w-56 h-56 object-cover rounded-2xl shadow-lg border border-gray-200"
+              className="w-72 h-72 object-cover rounded-3xl shadow-2xl border-2 border-gray-200"
               style={{ objectPosition: 'center 20%' }}
             />
             <div className="flex-1">
-              <h1 className="text-5xl font-bold text-gray-900 mb-3">Software Engineer</h1>
-              <p className="text-xl text-gray-600 mb-6">
+              <h1 className="text-6xl font-bold text-gray-900 mb-4 leading-tight">Software Engineer</h1>
+              <p className="text-2xl text-gray-600 mb-8 leading-relaxed">
                 AI & Data Systems Engineer • Published Researcher • Student Leader
               </p>
-              <div className="flex flex-wrap gap-4 text-sm">
-                <a href="mailto:pranithbhukya09@gmail.com" className="flex items-center gap-2 text-gray-700 hover:text-blue-600">
-                  <Mail className="w-4 h-4" />
-                  Email
+              <div className="flex flex-wrap gap-6 text-base">
+                <a href="mailto:pranithbhukya09@gmail.com" className="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition-colors">
+                  <Mail className="w-5 h-5" />
+                  <span className="font-medium">Email</span>
                 </a>
-                <a href="https://www.linkedin.com/in/pranith-bhukya/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-700 hover:text-blue-600">
-                  <Linkedin className="w-4 h-4" />
-                  LinkedIn
+                <a href="https://www.linkedin.com/in/pranith-bhukya/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition-colors">
+                  <Linkedin className="w-5 h-5" />
+                  <span className="font-medium">LinkedIn</span>
                 </a>
                 <button 
                   onClick={() => {
@@ -364,10 +364,10 @@ const Home = () => {
                     link.click();
                     document.body.removeChild(link);
                   }}
-                  className="flex items-center gap-2 text-gray-700 hover:text-blue-600"
+                  className="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition-colors"
                 >
-                  <ExternalLink className="w-4 h-4" />
-                  Resume
+                  <ExternalLink className="w-5 h-5" />
+                  <span className="font-medium">Resume</span>
                 </button>
               </div>
             </div>
