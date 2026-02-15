@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, Linkedin, Github, ExternalLink, Code, Database, Cloud, Award, Briefcase, GraduationCap, MapPin, BookOpen } from 'lucide-react';
+import { Mail, Linkedin, Github, ExternalLink, Code, Database, Cloud, Award, Briefcase, GraduationCap, MapPin, BookOpen, Sparkles } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 
@@ -249,86 +249,107 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Simple Header */}
-      <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrollY > 50 ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-white'
-      } border-b border-gray-200`}>
-        <div className="max-w-5xl mx-auto px-6 py-6">
-          <div className="text-center">
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">Pranith Bhukya – Software Engineer</h1>
-            <div className="flex flex-wrap justify-center items-center gap-4 text-sm text-gray-600">
-              <a href="mailto:pranithbhukya09@gmail.com" className="hover:text-blue-600 flex items-center gap-1">
-                <Mail className="w-4 h-4" />
-                pranithbhukya09@gmail.com
-              </a>
-              <span className="text-gray-400">|</span>
-              <a href="https://www.linkedin.com/in/pranith-bhukya/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 flex items-center gap-1">
-                <Linkedin className="w-4 h-4" />
-                LinkedIn
-              </a>
-              <span className="text-gray-400">|</span>
-              <a href="https://github.com/pranithbhukya" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 flex items-center gap-1">
-                <Github className="w-4 h-4" />
-                GitHub
-              </a>
-              <span className="text-gray-400">|</span>
-              <button 
-                onClick={() => {
-                  const link = document.createElement('a');
-                  link.href = '/Pranith_Bhukya_Resume.pdf';
-                  link.download = 'Pranith_Bhukya_Resume.pdf';
-                  document.body.appendChild(link);
-                  link.click();
-                  document.body.removeChild(link);
-                }}
-                className="hover:text-blue-600 flex items-center gap-1"
-              >
-                <ExternalLink className="w-4 h-4" />
-                Resume
-              </button>
+      {/* Hero Section with Gradient Background */}
+      <div className="gradient-bg relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-20 left-10 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+        
+        <header className="relative z-10 pt-8 pb-6">
+          <div className="max-w-5xl mx-auto px-6">
+            <div className="text-center">
+              <div className="inline-block bg-white/95 backdrop-blur-md rounded-2xl px-8 py-6 shadow-xl">
+                <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent mb-3">
+                  Pranith Bhukya – Software Engineer
+                </h1>
+                <div className="flex flex-wrap justify-center items-center gap-4 text-sm text-gray-700">
+                  <a href="mailto:pranithbhukya09@gmail.com" className="hover:text-purple-600 transition-colors flex items-center gap-1">
+                    <Mail className="w-4 h-4" />
+                    pranithbhukya09@gmail.com
+                  </a>
+                  <span className="text-gray-400">|</span>
+                  <a href="https://www.linkedin.com/in/pranith-bhukya/" target="_blank" rel="noopener noreferrer" className="hover:text-purple-600 transition-colors flex items-center gap-1">
+                    <Linkedin className="w-4 h-4" />
+                    LinkedIn
+                  </a>
+                  <span className="text-gray-400">|</span>
+                  <a href="https://github.com/pranithbhukya" target="_blank" rel="noopener noreferrer" className="hover:text-purple-600 transition-colors flex items-center gap-1">
+                    <Github className="w-4 h-4" />
+                    GitHub
+                  </a>
+                  <span className="text-gray-400">|</span>
+                  <button 
+                    onClick={() => {
+                      const link = document.createElement('a');
+                      link.href = '/Pranith_Bhukya_Resume.pdf';
+                      link.download = 'Pranith_Bhukya_Resume.pdf';
+                      document.body.appendChild(link);
+                      link.click();
+                      document.body.removeChild(link);
+                    }}
+                    className="hover:text-purple-600 transition-colors flex items-center gap-1"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    Resume
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </header>
+        </header>
 
-      {/* Main Content */}
-      <main className="pt-40 pb-20">
-        <div className="max-w-5xl mx-auto px-6">
-          
-          {/* About Section with Photo */}
-          <section id="about" className="mb-20">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">About</h2>
-            <div className="flex flex-col md:flex-row gap-8 items-start">
-              <div className="flex-shrink-0">
-                <img 
-                  src="https://customer-assets.emergentagent.com/job_career-analyzer-8/artifacts/3jlewvd3_efe62cd4-6ee9-4106-a55a-34a2c979de14.jpeg"
-                  alt="Pranith Bhukya" 
-                  className="w-48 h-48 object-cover object-center rounded-xl shadow-md border border-gray-200"
-                  style={{ objectPosition: 'center 20%' }}
-                />
-              </div>
-              <div className="flex-1">
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  Software Engineer and AI & Data Systems Engineer with experience building Generative AI applications, 
-                  scalable backend systems, and production-grade databases. Published researcher with expertise in AI governance, 
-                  database architecture, full-stack development, and data analytics. Passionate about responsible AI, system design, 
-                  and solving complex technical problems.
-                </p>
+        {/* About Section with Photo in Hero */}
+        <section className="relative z-10 py-16">
+          <div className="max-w-5xl mx-auto px-6">
+            <div className="bg-white/95 backdrop-blur-md rounded-3xl shadow-2xl p-8 md:p-12">
+              <div className="flex flex-col md:flex-row gap-8 items-center">
+                <div className="flex-shrink-0">
+                  <div className="relative float-animation">
+                    <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-2xl blur-xl opacity-50"></div>
+                    <img 
+                      src="https://customer-assets.emergentagent.com/job_career-analyzer-8/artifacts/3jlewvd3_efe62cd4-6ee9-4106-a55a-34a2c979de14.jpeg"
+                      alt="Pranith Bhukya" 
+                      className="relative w-56 h-56 object-cover object-center rounded-2xl shadow-2xl border-4 border-white"
+                      style={{ objectPosition: 'center 20%' }}
+                    />
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-4">
+                    <Sparkles className="w-6 h-6 text-purple-600" />
+                    <h2 className="text-3xl font-bold text-gray-900">About Me</h2>
+                  </div>
+                  <p className="text-lg text-gray-700 leading-relaxed">
+                    Software Engineer and AI & Data Systems Engineer with experience building Generative AI applications, 
+                    scalable backend systems, and production-grade databases. Published researcher with expertise in AI governance, 
+                    database architecture, full-stack development, and data analytics. Passionate about responsible AI, system design, 
+                    and solving complex technical problems.
+                  </p>
+                </div>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
+      </div>
 
+      {/* Main Content with Pattern Background */}
+      <main className="mesh-gradient py-20">
+        <div className="max-w-5xl mx-auto px-6">
+          
           {/* Projects Section */}
           <section id="projects" className="mb-20">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Projects</h2>
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-1 h-12 bg-gradient-to-b from-purple-600 to-pink-600 rounded-full"></div>
+              <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Projects</h2>
+            </div>
             <div className="space-y-6">
               {projects.map((project, index) => (
-                <Card key={index} className="border-gray-200 hover:shadow-md transition-all">
+                <Card key={index} className="border-gray-200 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 bg-white/80 backdrop-blur-sm">
                   <CardHeader>
                     <div className="flex items-start justify-between gap-4 mb-2">
                       <CardTitle className="text-xl text-gray-900">{project.title}</CardTitle>
                       {project.period && (
-                        <Badge className="bg-gray-100 text-gray-700 border-gray-200 text-xs">
+                        <Badge className="bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 border-purple-200 text-xs">
                           {project.period}
                         </Badge>
                       )}
@@ -348,7 +369,7 @@ const Home = () => {
                     <ul className="space-y-2">
                       {project.highlights.map((highlight, i) => (
                         <li key={i} className="text-gray-700 text-sm flex items-start gap-2">
-                          <span className="text-blue-600 mt-1 flex-shrink-0">•</span>
+                          <span className="text-purple-600 mt-1 flex-shrink-0">•</span>
                           <span>{highlight}</span>
                         </li>
                       ))}
@@ -361,10 +382,13 @@ const Home = () => {
 
           {/* Publications Section */}
           <section id="publications" className="mb-20">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Publications</h2>
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-1 h-12 bg-gradient-to-b from-blue-600 to-cyan-600 rounded-full"></div>
+              <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Publications</h2>
+            </div>
             <div className="space-y-6">
               {publications.map((pub, index) => (
-                <Card key={index} className="border-gray-200 hover:shadow-md transition-all">
+                <Card key={index} className="border-gray-200 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 bg-white/80 backdrop-blur-sm">
                   <CardHeader>
                     <div className="flex items-start justify-between gap-4 mb-2">
                       <CardTitle className="text-xl text-gray-900 leading-tight">
@@ -382,7 +406,7 @@ const Home = () => {
                       )}
                     </div>
                     <div className="flex flex-wrap items-center gap-2 mb-2">
-                      <Badge className="bg-blue-50 text-blue-700 border-blue-200 text-xs">
+                      <Badge className="bg-gradient-to-r from-blue-100 to-cyan-100 text-blue-700 border-blue-200 text-xs">
                         {pub.type}
                       </Badge>
                       <span className="text-gray-600 text-sm">{pub.year}</span>
@@ -402,10 +426,13 @@ const Home = () => {
 
           {/* Experience Section */}
           <section id="experience" className="mb-20">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Experience</h2>
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-1 h-12 bg-gradient-to-b from-green-600 to-emerald-600 rounded-full"></div>
+              <h2 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">Experience</h2>
+            </div>
             <div className="space-y-6">
               {experiences.map((exp, index) => (
-                <Card key={index} className="border-gray-200">
+                <Card key={index} className="border-gray-200 hover:shadow-xl transition-all bg-white/80 backdrop-blur-sm">
                   <CardHeader>
                     <div className="flex items-start justify-between gap-4 mb-2">
                       <div>
@@ -413,7 +440,7 @@ const Home = () => {
                         <CardDescription className="text-blue-600 font-medium text-base">{exp.company}</CardDescription>
                       </div>
                       {exp.current && (
-                        <Badge className="bg-blue-50 text-blue-700 border-blue-200">
+                        <Badge className="bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 border-green-200">
                           Current
                         </Badge>
                       )}
@@ -428,7 +455,7 @@ const Home = () => {
                     <ul className="space-y-2">
                       {exp.description.map((item, i) => (
                         <li key={i} className="text-gray-700 text-sm flex items-start gap-2">
-                          <span className="text-blue-600 mt-1">•</span>
+                          <span className="text-green-600 mt-1">•</span>
                           <span>{item}</span>
                         </li>
                       ))}
@@ -441,8 +468,11 @@ const Home = () => {
 
           {/* Skills Section */}
           <section id="skills" className="mb-20">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Skills</h2>
-            <Card className="border-gray-200">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-1 h-12 bg-gradient-to-b from-orange-600 to-red-600 rounded-full"></div>
+              <h2 className="text-4xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">Skills</h2>
+            </div>
+            <Card className="border-gray-200 bg-white/80 backdrop-blur-sm">
               <CardContent className="p-6">
                 <div className="flex flex-wrap gap-2 mb-6">
                   {Object.keys(skillCategories).map((category) => {
@@ -453,7 +483,7 @@ const Home = () => {
                         onClick={() => setActiveSkillTab(category)}
                         className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                           activeSkillTab === category
-                            ? 'bg-blue-600 text-white'
+                            ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg'
                             : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                         }`}
                       >
@@ -476,7 +506,7 @@ const Home = () => {
                           return (
                             <div
                               key={skill}
-                              className={`${skillData.bg} border border-gray-200 rounded-lg p-4 text-center hover:border-blue-300 transition-all`}
+                              className={`${skillData.bg} border border-gray-200 rounded-lg p-4 text-center hover:border-purple-300 hover:shadow-md transition-all`}
                             >
                               <div className="text-3xl mb-2">{skillData.icon}</div>
                               <div className="text-gray-900 text-sm font-medium">{skill}</div>
@@ -493,10 +523,13 @@ const Home = () => {
 
           {/* Education Section */}
           <section className="mb-20">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Education</h2>
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-1 h-12 bg-gradient-to-b from-indigo-600 to-purple-600 rounded-full"></div>
+              <h2 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Education</h2>
+            </div>
             <div className="space-y-6">
               {education.map((edu, index) => (
-                <Card key={index} className="border-gray-200">
+                <Card key={index} className="border-gray-200 hover:shadow-xl transition-all bg-white/80 backdrop-blur-sm">
                   <CardHeader>
                     <div className="flex items-start justify-between gap-4 mb-2">
                       <div>
@@ -504,7 +537,7 @@ const Home = () => {
                         <CardDescription className="text-blue-600 font-medium text-base">{edu.institution}</CardDescription>
                       </div>
                       {edu.current && (
-                        <Badge className="bg-blue-50 text-blue-700 border-blue-200">
+                        <Badge className="bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-700 border-indigo-200">
                           In Progress
                         </Badge>
                       )}
@@ -533,32 +566,35 @@ const Home = () => {
 
           {/* Contact Section */}
           <section id="contact">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Contact</h2>
-            <Card className="border-gray-200">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-1 h-12 bg-gradient-to-b from-pink-600 to-rose-600 rounded-full"></div>
+              <h2 className="text-4xl font-bold bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent">Contact</h2>
+            </div>
+            <Card className="border-gray-200 bg-white/80 backdrop-blur-sm">
               <CardContent className="p-8">
                 <p className="text-gray-700 mb-6">
                   I'm always open to discussing new opportunities, projects, or collaborations. Feel free to reach out!
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-4 rounded-lg">
                     <h3 className="text-sm font-semibold text-gray-900 mb-2">Email</h3>
-                    <a href="mailto:pranithbhukya09@gmail.com" className="text-blue-600 hover:text-blue-700">
+                    <a href="mailto:pranithbhukya09@gmail.com" className="text-purple-600 hover:text-purple-700">
                       pranithbhukya09@gmail.com
                     </a>
                   </div>
-                  <div>
+                  <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-4 rounded-lg">
                     <h3 className="text-sm font-semibold text-gray-900 mb-2">Phone</h3>
                     <a href="tel:+13464902475" className="text-blue-600 hover:text-blue-700">
                       +1 (346) 490-2475
                     </a>
                   </div>
-                  <div>
+                  <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-4 rounded-lg">
                     <h3 className="text-sm font-semibold text-gray-900 mb-2">LinkedIn</h3>
-                    <a href="https://www.linkedin.com/in/pranith-bhukya/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700">
+                    <a href="https://www.linkedin.com/in/pranith-bhukya/" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:text-green-700">
                       linkedin.com/in/pranith-bhukya
                     </a>
                   </div>
-                  <div>
+                  <div className="bg-gradient-to-br from-orange-50 to-red-50 p-4 rounded-lg">
                     <h3 className="text-sm font-semibold text-gray-900 mb-2">Location</h3>
                     <p className="text-gray-700">Houston, TX</p>
                   </div>
@@ -570,7 +606,7 @@ const Home = () => {
       </main>
 
       {/* Footer */}
-      <footer className="py-8 border-t border-gray-200">
+      <footer className="py-8 border-t border-gray-200 bg-white">
         <div className="max-w-5xl mx-auto px-6 text-center text-gray-600 text-sm">
           <p>&copy; 2025 Pranith Bhukya. All rights reserved.</p>
         </div>
