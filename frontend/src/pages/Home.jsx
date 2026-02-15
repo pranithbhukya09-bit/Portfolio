@@ -183,11 +183,11 @@ const Home = () => {
 
   const publications = [
     {
-      title: 'A Comprehensive Literature Review on the Internet of Things (IoT): Evolution, Applications, Challenges, and Future Directions',
+      title: 'A Comprehensive Literature Review on the Internet of Things (IOT): Evolution, Applications, Challenges, and Future Directions',
       type: 'Journal Article',
       venue: 'International Journal of Scientific Research in Computer Science, Engineering and Information Technology',
-      year: '2024',
-      url: 'https://ijsrcseit.com/paper/CSEIT2410323.pdf',
+      year: '2023',
+      url: 'https://ijsrcseit.com/home/issue/view/article.php?id=CSEIT239811',
       description: 'Conducted comprehensive analysis of IoT ecosystem evolution, examining current applications, technical challenges, and emerging trends in connected device systems.',
       impact: 'Published in peer-reviewed international journal, contributing to academic understanding of IoT infrastructure'
     },
@@ -197,6 +197,7 @@ const Home = () => {
       venue: 'IEEE International Conference on Communications and Computer Science-2024',
       location: 'B.M.S College of Engineering, Bangalore',
       year: '2024',
+      date: 'May 24, 2024',
       description: 'Developed and presented machine learning-based recommendation system using collaborative filtering algorithms to enhance e-commerce grocery shopping experience.',
       impact: 'Presented at international IEEE conference, demonstrating practical application of ML in retail optimization'
     }
