@@ -611,9 +611,16 @@ const Home = () => {
               <Card key={index} className="bg-slate-900/50 border-slate-800 hover:border-cyan-500/50 transition-all duration-300 hover:scale-105 group overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                 <CardHeader className="pb-4">
-                  <CardTitle className="text-white text-xl mb-3 group-hover:text-cyan-400 transition-colors">
-                    {project.title}
-                  </CardTitle>
+                  <div className="flex items-start justify-between gap-2 mb-2">
+                    <CardTitle className="text-white text-xl group-hover:text-cyan-400 transition-colors flex-1">
+                      {project.title}
+                    </CardTitle>
+                    {project.period && (
+                      <Badge className="bg-slate-800 text-slate-400 border-slate-700 text-xs flex-shrink-0">
+                        {project.period}
+                      </Badge>
+                    )}
+                  </div>
                   <CardDescription className="text-slate-300 text-base leading-relaxed">
                     {project.description}
                   </CardDescription>
