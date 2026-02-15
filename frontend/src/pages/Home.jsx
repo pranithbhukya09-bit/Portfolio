@@ -585,11 +585,83 @@ const Home = () => {
                     <ul className="space-y-2">
                       {project.highlights.map((highlight, i) => (
                         <li key={i} className="text-slate-300 flex items-start gap-2 text-sm">
-                          <span className="text-cyan-400 mt-1 flex-shrink-0">✓</span>
+                          <span className="text-cyan-400 mt-1 flex-shrink-0">•</span>
                           <span>{highlight}</span>
                         </li>
                       ))}
                     </ul>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Publications Section */}
+      <section id="publications" className="relative py-20 px-6 bg-slate-900/50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-white mb-4">
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Publications</span>
+            </h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto rounded-full"></div>
+          </div>
+          
+          <div className="space-y-6">
+            {publications.map((pub, index) => (
+              <Card key={index} className="bg-slate-900/50 border-slate-800 hover:border-cyan-500/50 transition-all duration-300 hover:scale-102 group">
+                <CardHeader>
+                  <div className="flex items-start gap-4">
+                    <div className="bg-gradient-to-r from-cyan-500 to-blue-600 p-3 rounded-xl group-hover:scale-110 transition-transform flex-shrink-0">
+                      <BookOpen className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-start justify-between gap-4 mb-2">
+                        <CardTitle className="text-white text-xl leading-tight">
+                          {pub.title}
+                        </CardTitle>
+                        {pub.url && (
+                          <a
+                            href={pub.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-shrink-0 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 p-2 rounded-lg transition-all"
+                          >
+                            <ExternalLink className="w-5 h-5" />
+                          </a>
+                        )}
+                      </div>
+                      <div className="flex flex-wrap items-center gap-3 mb-3">
+                        <Badge className="bg-cyan-500/10 text-cyan-400 border-cyan-500/20">
+                          {pub.type}
+                        </Badge>
+                        <span className="text-slate-400 text-sm">{pub.year}</span>
+                      </div>
+                      <CardDescription className="text-cyan-400 text-base font-medium mb-2">
+                        {pub.venue}
+                      </CardDescription>
+                      {pub.location && (
+                        <div className="flex items-center gap-1 text-slate-400 text-sm mb-3">
+                          <MapPin className="w-4 h-4" />
+                          <span>{pub.location}</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  <p className="text-slate-300 leading-relaxed">
+                    {pub.description}
+                  </p>
+                  <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
+                    <div className="flex items-start gap-2">
+                      <Award className="w-4 h-4 text-cyan-400 mt-1 flex-shrink-0" />
+                      <p className="text-slate-400 text-sm">
+                        <span className="text-cyan-400 font-semibold">Impact: </span>
+                        {pub.impact}
+                      </p>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
